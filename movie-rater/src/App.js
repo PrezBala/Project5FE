@@ -6,6 +6,7 @@ import MovieList from './components/movie-list';
 function App() {
 
   const [movies, setMovies] = useState([]);
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(()=>{
     fetch("https://8000-prezbala-project5api-nox8rqq7d9l.ws-eu97.gitpod.io/api/movies/", {
@@ -21,13 +22,17 @@ function App() {
 
   }, [])
 
+  const movieClicked = movie => {
+    console.log(movie.title);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <h1>Movie Rater</h1>
       </header>
       <div className="layout">
-        <MovieList movies={movies}/>
+        <MovieList movies={movies} movieClicked={movieClicked}/>
         <div>Movie details</div>
       </div>
     </div>
