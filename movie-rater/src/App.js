@@ -27,7 +27,7 @@ function App() {
         <h1>Movie Rater</h1>
       </header>
       <div className="layout">
-        <MovieList />
+        <MovieList movies={movies}/>
         <div>Movie details</div>
       </div>
     </div>
