@@ -6,19 +6,21 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 function MovieDetails(props){
 
+    const mov = props.movie;
+
 
     return (
         <div>
-            { props.movie ? (
+            { mov ? (
                 <div>
-                    <h1>{props.movie && props.movie.title}</h1>
-                    <p>{props.movie && props.movie.description}</p>
-                    <FontAwesomeIcon icon={faStar} className={props.movie.avg_rating > 0 ? 'orange':'' } />
-                    <FontAwesomeIcon icon={faStar} className={props.movie.avg_rating > 1 ? 'orange':'' } />
-                    <FontAwesomeIcon icon={faStar} className={props.movie.avg_rating > 2 ? 'orange':'' } />
-                    <FontAwesomeIcon icon={faStar} className={props.movie.avg_rating > 3 ? 'orange':'' } />
-                    <FontAwesomeIcon icon={faStar} className={props.movie.avg_rating > 4 ? 'orange':'' } />
-                    ({props.movie.no_of_ratings})
+                    <h1>{mov && mov.title}</h1>
+                    <p>{mov && mov.description}</p>
+                    <FontAwesomeIcon icon={faStar} className={mov.avg_rating > 0 ? 'orange':'' } />
+                    <FontAwesomeIcon icon={faStar} className={mov.avg_rating > 1 ? 'orange':'' } />
+                    <FontAwesomeIcon icon={faStar} className={mov.avg_rating > 2 ? 'orange':'' } />
+                    <FontAwesomeIcon icon={faStar} className={mov.avg_rating > 3 ? 'orange':'' } />
+                    <FontAwesomeIcon icon={faStar} className={mov.avg_rating > 4 ? 'orange':'' } />
+                    ({mov.no_of_ratings})
                 </div>
             ) : null }
 
