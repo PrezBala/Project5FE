@@ -8,6 +8,26 @@ const [ highlighted, setHighlighted ] = useState(-1);
     
     const mov = props.movie;
 
+    const highlightRate = high => evt => {
+        setHighlighted(high);
+      }
+
+    const rateClicked = rate => evt => {
+        fetch(`https://8000-prezbala-project5api-nox8rqq7d9l.ws-eu96b.gitpod.io/api/movies/${mov.id}/rate_movie/`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Token 1585932fbeb3f2384cd08c6fe9438600f96e51fa'
+            },
+            body: JSON.stringify( {stars: rate + 1} )
+
+        })
+        .then( resp => resp.json())
+        .then( resp => console.log(resp))
+        .catch( error => console.log(error))
+    }
+
+
     return (
         <React.Fragment>
             { mov ? (
@@ -24,8 +44,9 @@ const [ highlighted, setHighlighted ] = useState(-1);
                         <h2>Rate it</h2>
                         { [...Array(5)].map( (e, i) => {
                         return <FontAwesomeIcon key={i} icon={faStar} className={highlighted > i - 1 ? 'purple':''}
-                                onMouseEnter={() => setHighlighted(i)}
-                                onMouseLeave={() => setHighlighted(-1)}
+                                onMouseEnter={highlightRate(i)}
+                                onMouseLeave={highlightRate(-1)}
+                                onClick={rateClicked(i)}
                             />
                         })}
                     </div>
