@@ -1,23 +1,14 @@
 import React from 'react';
 
 
-function MovieList(props){
+function MovieDetails(props){
 
-    const movieClicked = movie => evt => {
-        props.movieClicked(movie)
-    }
 
     return (
         <div>
-            { props.movies && props.movies.map( movie => {
-                return (
-                    <div key={movie.id}>
-                        <h2 onClick={movieClicked(movie)}> {movie.title}</h2>
-                    </div>
-                )
-            })}
+            <h1>props.movie</h1>
         </div> 
     )
 }
   
-  export default MovieList;
+  export default MovieDetails;
