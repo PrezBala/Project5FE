@@ -6,7 +6,7 @@ function MovieDetails(props){
 
     return (
         <div>
-            <h1>props.movie</h1>
+            <h1>{props.movie && props.movie.title}</h1>
         </div> 
     )
 }
