@@ -7,7 +7,9 @@ function MovieForm(props) {
     const [ description, setDescription ] = useState(props.movie.description);
 
     const updateClicked = () => {
-        console.log('update here');
+
+        API.updateMovie(props.movie.id, {title, description})
+        .then( resp => console.log(resp))
       }
 
 
