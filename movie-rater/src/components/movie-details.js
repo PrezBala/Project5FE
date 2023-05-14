@@ -4,9 +4,10 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 function MovieDetails(props){
 
-const [ highlighted, setHighlighted ] = useState(-1);
+    const [ highlighted, setHighlighted ] = useState(-1);
+
     
-    const mov = props.movie;
+    let mov = props.movie;
 
     const highlightRate = high => evt => {
         setHighlighted(high);
@@ -22,8 +23,8 @@ const [ highlighted, setHighlighted ] = useState(-1);
             body: JSON.stringify( {stars: rate + 1} )
 
         })
-        .then( resp => resp.json())
-        .then( resp => console.log(resp))
+
+        .then( () => getDetails())
         .catch( error => console.log(error))
     }
     
