@@ -4,7 +4,12 @@ function MovieForm(props) {
     return (
         <React.Fragment>
             { props.movie ? (
-            <h1>{props.movie.title} edit </h1>
+            <div>
+                <label for="title">Title</label><br/>
+                <input id="title" type="text" placeholder="title" /><br/>
+                <label for="description">Description</label><br/>
+                <textarea id="description"type="text" placeholder="Description"></textarea><br/>
+            </div>
             ) : null }
         </React.Fragment>
     )
