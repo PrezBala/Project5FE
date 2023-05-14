@@ -10,6 +10,7 @@ function MovieForm(props) {
 
         API.updateMovie(props.movie.id, {title, description})
         .then( resp => console.log(resp))
+        .catch( error => console.log(error))
       }
 
 
