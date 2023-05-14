@@ -13,7 +13,7 @@ const [ highlighted, setHighlighted ] = useState(-1);
       }
 
     const rateClicked = rate => evt => {
-        fetch(`https://8000-prezbala-project5api-nox8rqq7d9l.ws-eu96b.gitpod.io/api/movies/${mov.id}/rate_movie/`, {
+        fetch(`https://8000-prezbala-project5api-nox8rqq7d9l.ws-eu97.gitpod.io/api/movies/${mov.id}/rate_movie/`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -26,7 +26,19 @@ const [ highlighted, setHighlighted ] = useState(-1);
         .then( resp => console.log(resp))
         .catch( error => console.log(error))
     }
-
+    
+    const getDetails = () => {
+        fetch(`https://8000-prezbala-project5api-nox8rqq7d9l.ws-eu97.gitpod.io/api/movies/${mov.id}/`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Token 1585932fbeb3f2384cd08c6fe9438600f96e51fa`
+          }
+        })
+        .then( resp => resp.json())
+        .then( resp => props.updateMovie(resp))
+        .catch( error => console.log(error))
+      }
 
     return (
         <React.Fragment>

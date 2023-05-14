@@ -9,7 +9,7 @@ function App() {
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(()=>{
-    fetch("https://8000-prezbala-project5api-nox8rqq7d9l.ws-eu96b.gitpod.io/api/movies/", {
+    fetch("https://8000-prezbala-project5api-nox8rqq7d9l.ws-eu97.gitpod.io/api/movies/", {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
