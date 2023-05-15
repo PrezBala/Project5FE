@@ -51,6 +51,11 @@ function App() {
     setSelectedMovie(null);
   }
 
+  const movieCreated = movie => {
+    const newMovies = [...movies, movie];
+    setMovies(newMovies);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -62,7 +67,9 @@ function App() {
           <button onClick={ newMovie}>New Movie</button>
         </div>
         <MovieDetails movie={selectedMovie} updateMovie={loadMovie}/>
-        { editedMovie ? <MovieForm movie ={editedMovie} updatedMovie={updatedMovie} /> : null }
+        { editedMovie ? 
+        <MovieForm movie ={editedMovie} updatedMovie={updatedMovie} movieCreated={movieCreated} /> 
+        : null }
 
       </div>
     </div>
