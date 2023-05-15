@@ -1,10 +1,15 @@
-import React, {useState}from 'react';
+import React, {useState, useEffect }from 'react';
 import { API } from '../api-service';
 
 function MovieForm(props) {
 
-    const [ title, setTitle ] = useState(props.movie.title);
-    const [ description, setDescription ] = useState(props.movie.description);
+    const [ title, setTitle ] = useState();
+    const [ description, setDescription ] = useState();
+
+    useEffect( () => {
+        setTitle(props.movie.title);
+        setDescription(props.movie.description);
+      }, [props.movie])
 
     const updateClicked = () => {
 
@@ -15,7 +20,7 @@ function MovieForm(props) {
 
     const createClicked = () => {
         API.createMovie({title, description})
-        .then( resp => props.newMovie(resp))
+        .then( resp => props.movieCreated(resp))
         .catch( error => console.log(error))
       }
 

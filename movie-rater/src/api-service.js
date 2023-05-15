@@ -14,7 +14,7 @@ export class API {
     }
 
     static createMovie(body) {
-        return fetch(`https://8000-prezbala-project5api-nox8rqq7d9l.ws-eu97.gitpod.io/api/movies/${mov_id}/`, {
+        return fetch(`https://8000-prezbala-project5api-nox8rqq7d9l.ws-eu97.gitpod.io/api/movies/`, {
           method: 'POST',
           headers: {
                   'Content-Type': 'application/json',
