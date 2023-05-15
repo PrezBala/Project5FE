@@ -57,7 +57,10 @@ function App() {
         <h1>Movie Rater</h1>
       </header>
       <div className="layout">
-        <MovieList movies={movies} movieClicked={loadMovie} editClicked={editClicked}/>
+        <div>
+          <MovieList movies={movies} movieClicked={loadMovie} editClicked={editClicked}/>
+          <button onClick={ newMovie}>New Movie</button>
+        </div>
         <MovieDetails movie={selectedMovie} updateMovie={loadMovie}/>
         { editedMovie ? <MovieForm movie ={editedMovie} updatedMovie={updatedMovie} /> : null }
 
