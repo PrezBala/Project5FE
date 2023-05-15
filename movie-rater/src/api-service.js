@@ -23,4 +23,14 @@ export class API {
               body: JSON.stringify( body )
           }) .then( resp => resp.json())
       }
+
+    static deleteMovie(mov_id) {
+        return fetch(`https://8000-prezbala-project5api-nox8rqq7d9l.ws-eu97.gitpod.io/api/movies/${mov_id}/`, {
+          method: 'DELETE',
+          headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Token ${TOKEN}`
+              }
+          }) 
+      }
 }
