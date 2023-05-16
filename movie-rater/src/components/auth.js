@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { API } from '../api-service';
+import { TokenContext } from '../index';
 
 function Auth(){
 
     const [ username, setUsername ] = useState('');
     const [ password, setPassword ] = useState('');
 
+    const [token, setToken] = useContext(TokenContext);
+
     const loginClicked = () => {
         API.loginUser({username, password})
-        .then( resp => console.log(resp.token))
+        .then( resp => setToken(resp.token))
         .catch( error => console.log(error))
     }
 
