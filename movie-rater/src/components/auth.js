@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { API } from '../api-service';
 
 function Auth(){
 
@@ -8,7 +8,7 @@ function Auth(){
 
     const loginClicked = () => {
         API.loginUser({username, password})
-        .then( resp => setToken('mr-token', resp.token))
+        .then( resp => console.log(resp.token))
         .catch( error => console.log(error))
     }
 
