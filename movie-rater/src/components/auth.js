@@ -7,7 +7,7 @@ function Auth(){
     const [ username, setUsername ] = useState('');
     const [ password, setPassword ] = useState('');
 
-    const [token, setToken] = useContext(TokenContext);
+    const {token, setToken} = useContext(TokenContext);
 
     const loginClicked = () => {
         API.loginUser({username, password})

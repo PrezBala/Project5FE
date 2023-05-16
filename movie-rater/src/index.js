@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React, { useState, createContext } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -9,11 +9,12 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom';
 export const TokenContext = createContext(null);
 
 function Router() {
-  const TOKEN = "1585932fbeb3f2384cd08c6fe9438600f96e51fa";
+
+  const [token, setToken] = useState('');
   
   return (
     <React.StrictMode>
-      <TokenContext.Provider value={TOKEN}>
+      <TokenContext.Provider value={{token, setToken}}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Auth />} />
