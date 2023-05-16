@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect} from 'react';
 import { API } from '../api-service';
 import { useCookies } from 'react-cookie';
 
@@ -11,7 +11,7 @@ function Auth(){
 
     useEffect( () => {
         console.log(token);
-        //if(token) window.location.href = '/movies';
+        if(token.token) window.location.href = '/movies';
       }, [token])
 
     const loginClicked = () => {
