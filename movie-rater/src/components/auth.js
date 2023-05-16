@@ -11,7 +11,7 @@ function Auth(){
 
     useEffect( () => {
         console.log(token);
-        if(token.token) window.location.href = '/movies';
+        if(token['mr-token']) window.location.href = '/movies';
       }, [token])
 
     const loginClicked = () => {
