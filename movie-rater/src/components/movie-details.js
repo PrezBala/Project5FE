@@ -14,7 +14,7 @@ function MovieDetails(props){
       }
 
     const rateClicked = rate => evt => {
-        fetch(`https://8000-prezbala-project5api-nox8rqq7d9l.ws-eu97.gitpod.io/api/movies/${mov.id}/rate_movie/`, {
+        fetch(`https://3000-prezbala-project5fe-nwt8eqsjv4.us2.codeanyapp.com/api/movies/${mov.id}/rate_movie/`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ function MovieDetails(props){
     }
     
     const getDetails = () => {
-        fetch(`https://8000-prezbala-project5api-nox8rqq7d9l.ws-eu97.gitpod.io/api/movies/${mov.id}/`, {
+        fetch(`https://3000-prezbala-project5fe-nwt8eqsjv4.us2.codeanyapp.com/api/movies/${mov.id}/`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

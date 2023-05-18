@@ -8,7 +8,6 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import { CookiesProvider } from 'react-cookie';
 
 function Router() {
-
   return (
     <React.StrictMode>
       <CookiesProvider>
@@ -23,6 +22,6 @@ function Router() {
   );
 }
 
-ReactDOM.render(<Router />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById('root')).render(<Router />);
 
 reportWebVitals();
