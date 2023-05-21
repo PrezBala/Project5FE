@@ -6,9 +6,10 @@
 }
 
 .App-header {
-  font-size: calc(10px + 2vmin);
-
-}
+    text-align: center;
+    font-size: calc(10px + 2vmin);
+    
+  }
 
 .layout{
   display: grid;
@@ -48,3 +49,9 @@
     margin: 0 25%;
   }
   
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    font-size: 0.8rem;
+  }
