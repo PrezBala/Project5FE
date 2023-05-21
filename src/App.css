@@ -21,6 +21,12 @@ button {
     outline: none;
 }
 
+button:disabled {
+    color: #f3f3f3;
+    background-color: #444;
+    cursor: not-allowed;
+  }
+
 .layout{
   display: grid;
   grid-template-columns: 1fr 1fr;

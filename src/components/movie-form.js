@@ -42,8 +42,8 @@ function MovieForm(props) {
                     onChange={ evt=> setDescription(evt.target.value)}
                 ></textarea><br/>
                 {  props.movie.id ?
-                <button onClick={updateClicked}>Update</button> : 
-                <button onClick={createClicked}>Create</button>
+                    <button onClick={updateClicked} disabled={isDisabled}>Update</button> : 
+                    <button onClick={createClicked} disabled={isDisabled}>Create</button>
                 }
 
             </div>
