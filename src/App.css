@@ -1,8 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto+Slab:wght@300;400;500&display=swap');
+
+body, input, button {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+h1, h2, h3 {
+  font-family: 'Roboto Slab', serif;
+}
+
 .App {
-  padding: 20px;
-  min-height: 100vh;
-  background-color: #282c34;
-  color: white;
+    padding: 20px;
+    min-height: 100vh;
+    background-color: #FAFAFA;
+    color: #333;
 }
 
 .App-header {
@@ -13,34 +24,38 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    color: white;
-  }
-  
-
-.App-header span {
-    margin-left: 10px;
-  }
+    color: #333;
+}
 
 button {
-    color: #444;
-    background-color: #f3f3f3;
-    padding: 5px 10px;
-    border-radius: 2px;
+    color: #FFF;  
+    background-color: #007BFF; 
+    padding: 10px 20px;
+    border-radius: 5px;  
     font-weight: bold;
     font-size: 0.8rem;
     outline: none;
+    cursor: pointer; 
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+}
+
+button:hover {
+    background-color: #0056b3; 
+    transform: scale(1.05);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.15);
 }
 
 button:disabled {
     color: #f3f3f3;
     background-color: #444;
     cursor: not-allowed;
-  }
+}
 
 .layout{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
 }
 
 .orange {
@@ -56,6 +71,21 @@ button:disabled {
   color: purple;
 }
 
+.movie-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.movie-rating {
+  display: flex;
+  align-items: center;
+}
+
+.movie-user-rating {
+  display: flex;
+}
+
 .rate-container .fa-star {
   font-size: 1.8rem;
   cursor: pointer;
@@ -64,67 +94,80 @@ button:disabled {
 .movie-item {
     display: grid;
     grid-template-columns: 1fr auto auto;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid #CCC; 
     padding-bottom: 10px;
     margin-bottom: 10px;
-  }
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+}
 
-  .movie-item h2 {
-    margin: 0;
-    cursor: pointer;
-    color: white;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-decoration: underline;
-  }
+.movie-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.1);
+}
+
 .movie-item svg {
   font-size: 1.2rem;
   margin: 16px 5px;
 }
 
+.movie-item h2 {
+    margin: 0;
+    cursor: pointer;
+    color: #333; 
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.movie-item button {
+    margin-left: auto;
+    order: 3;
+}
+
+.movie-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    grid-row: 1 / span 2;
+    grid-column: 1;
+}
+
+.movie-item p {
+    grid-column: 2;
+    grid-row: 2;
+    color: #666; 
+    font-size: 0.8rem;
+}
+
 .login-container {
     width: 50%;
     margin: 0 25%;
-  }
-  
+}
+
 input, textarea {
     width: 100%;
     padding: 10px;
     margin: 8px 0;
     font-size: 0.8rem;
-  }
+}
 
 .fa-trash {
     color: crimson;
-  }
+}
 
-  h1 {
+h1 {
     color: orange;
-  }
+}
 
-  h1 .fa-film {
+h1 .fa-film {
     color: white;
     transform: rotate(30deg);
-  }
+}
 
-  .fa-sign-out-alt {
+.fa-sign-out-alt {
     position: absolute;
     top: 20px;
     right: 20px;
     cursor: pointer;
     font-size: 1.5rem;
-  }
-
-  .logout-icon {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    cursor: pointer;
-    font-size: 1.5rem;
-    color: white;
-  }
-
-  .movie-list-container {
-    margin-top: 20px;
-  }
-  
+}
