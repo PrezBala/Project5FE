@@ -9,7 +9,17 @@
     text-align: center;
     font-size: calc(10px + 2vmin);
     
-  }
+}
+
+button {
+    color: #444;
+    background-color: #f3f3f3;
+    padding: 5px 10px;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    outline: none;
+}
 
 .layout{
   display: grid;
