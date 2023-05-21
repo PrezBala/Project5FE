@@ -3,19 +3,21 @@ import './App.css';
 import MovieList from './components/movie-list';
 import MovieDetails from './components/movie-details';
 import MovieForm from './components/movie-form';
+import { useCookies } from 'react-cookie';
 
 function App() {
 
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [editedMovie, setEditedMovie] = useState(null);
+  const [token] = useCookies(['mr-token']);
 
   useEffect(()=>{
     fetch("https://8000-prezbala-project5api-onll2lfd0l.us2.codeanyapp.com/api/movies/", {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Token 1585932fbeb3f2384cd08c6fe9438600f96e51fa'
+          'Authorization': `Token ${token['mr-token']}`
         }
     })
     .then( resp => resp.json())
@@ -23,6 +25,11 @@ function App() {
     .catch( error => console.log(error))
 
   }, [])
+
+  useEffect( () => {
+    console.log(token);
+    if(!token['mr-token']) window.location.href = '/';
+  }, [token])
 
 
 
