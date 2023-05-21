@@ -6,7 +6,7 @@ import { useCookies } from 'react-cookie';
 function MovieDetails(props){
 
     const [ highlighted, setHighlighted ] = useState(-1);
-    const [token, setToken] = useCookies(['mr-token']);
+    const [token] = useCookies(['mr-token']);
     
     let mov = props.movie;
 
@@ -19,7 +19,7 @@ function MovieDetails(props){
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': 'Token 1585932fbeb3f2384cd08c6fe9438600f96e51fa'
+              'Authorization': `Token ${token['mr-token']}` 
             },
             body: JSON.stringify( {stars: rate + 1} )
 
@@ -34,7 +34,7 @@ function MovieDetails(props){
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Token 1585932fbeb3f2384cd08c6fe9438600f96e51fa`
+            'Authorization': `Token ${token['mr-token']}` 
           }
         })
         .then( resp => resp.json())
