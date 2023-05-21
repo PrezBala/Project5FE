@@ -33,7 +33,8 @@ function Auth(){
             <input id="password"type="text" placeholder="password" value={password}
                 onChange={ evt=> setPassword (evt.target.value)}  /><br/>
             <button onClick={loginClicked}>Login</button> 
-
+            <p onClick={()=> setIsLoginView(false)}>You don't have an account? Register here!</p> : 
+            <p onClick={()=> setIsLoginView(true)}>You already have an account? Login here</p>
         </div>
     )
 }
