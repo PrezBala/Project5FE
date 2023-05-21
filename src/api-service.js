@@ -1,7 +1,7 @@
 const TOKEN = "1585932fbeb3f2384cd08c6fe9438600f96e51fa";
 
 export class API {
-  static loginUser(body, token) {
+  static loginUser(body) {
     return fetch(`https://8000-prezbala-project5api-onll2lfd0l.us2.codeanyapp.com/auth/`, {
       method: 'POST',
       headers: {
