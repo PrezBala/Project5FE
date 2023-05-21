@@ -9,6 +9,16 @@ export class API {
     }).then(resp => resp.json());
   }
 
+  static registerUser(body) {
+    return fetch(`http://127.0.0.1:8000/api/users/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify( body )
+    }).then( resp => resp.json())
+  }
+
   static updateMovie(mov_id, body, token) {
     return fetch(`https://8000-prezbala-project5api-onll2lfd0l.us2.codeanyapp.com/api/movies/${mov_id}/`, {
       method: 'PUT',

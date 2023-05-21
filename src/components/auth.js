@@ -21,6 +21,12 @@ function Auth(){
         .catch( error => console.log(error))
     }
 
+    const registerClicked = () => {
+        API.registerUser({username, password})
+          .then( () => loginClicked())
+          .catch( error => console.log(error))
+      }
+
     return (
         <div>
             
@@ -36,7 +42,7 @@ function Auth(){
                     <button onClick={loginClicked} disabled={isDisabled}>Login</button> : 
                     <button onClick={registerClicked} disabled={isDisabled}>Register</button>
                 }
-                
+
             { isLoginView ?
                 <p onClick={()=> setIsLoginView(false)}>You don't have an account? Register here!</p> : 
                 <p onClick={()=> setIsLoginView(true)}>You already have an account? Login here</p>
