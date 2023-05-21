@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { useCookies } from 'react-cookie';
 
 function MovieDetails(props){
 
     const [ highlighted, setHighlighted ] = useState(-1);
-
+    const [token, setToken] = useCookies(['mr-token']);
     
     let mov = props.movie;
 
