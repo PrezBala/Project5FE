@@ -14,7 +14,7 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [editedMovie, setEditedMovie] = useState(null);
-  const [token] = useCookies(['mr-token']);
+  const [token, setToken, deleteToken] = useCookies(['mr-token']);
 
   useEffect(()=>{
     fetch("https://8000-prezbala-project5api-onll2lfd0l.us2.codeanyapp.com/api/movies/", {
