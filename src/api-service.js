@@ -19,6 +19,16 @@ export class API {
     }).then( resp => resp.json())
   }
 
+  static getMovies(token){
+    return fetch("https://8000-prezbala-project5api-onll2lfd0l.us2.codeanyapp.com/api/movies/", {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Token ${token}` 
+      }
+    }).then( resp => resp.json())
+  }
+  
   static updateMovie(mov_id, body, token) {
     return fetch(`https://8000-prezbala-project5api-onll2lfd0l.us2.codeanyapp.com/api/movies/${mov_id}/`, {
       method: 'PUT',
