@@ -72,6 +72,11 @@ function App() {
     setMovies(newMovies);
   }
 
+  const logoutUser = () => {
+    deleteToken(['mr-token']);
+  }
+
+
   return (
     <div className="App">
       <header className="App-header">
@@ -79,6 +84,7 @@ function App() {
           <FontAwesomeIcon icon={faFilm}/>
           <span>Movie rater</span>
         </h1>
+        <FontAwesomeIcon icon={faSignOutAlt} onClick={logoutUser}/>
       </header>
       <div className="layout">
         <div>
