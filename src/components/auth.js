@@ -6,6 +6,7 @@ function Auth(){
 
     const [ username, setUsername ] = useState('');
     const [ password, setPassword ] = useState('');
+    const [ isLoginView, setIsLoginView ] = useState(true);
 
     const [token, setToken] = useCookies(['mr-token']);
 
@@ -22,6 +23,8 @@ function Auth(){
 
     return (
         <div>
+            
+            {isLoginView ? <h1>Login</h1> : <h1>Register</h1>}
             <label htmlFor="username">Username</label><br/>
             <input id="username" type="text" placeholder="username" value={username}
                 onChange={ evt=> setUsername(evt.target.value)}
