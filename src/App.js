@@ -11,7 +11,7 @@ function App() {
   const [editedMovie, setEditedMovie] = useState(null);
 
   useEffect(()=>{
-    fetch("https://8000-prezbala-project5api-nzyoyjptc3.us2.codeanyapp.com/api/movies/", {
+    fetch("https://8000-prezbala-project5api-onll2lfd0l.us2.codeanyapp.com/api/movies/", {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

@@ -2,7 +2,7 @@ const TOKEN = "1585932fbeb3f2384cd08c6fe9438600f96e51fa";
 
 export class API {
   static loginUser(body, token) {
-    return fetch(`https://8000-prezbala-project5api-nzyoyjptc3.us2.codeanyapp.com/auth/`, {
+    return fetch(`https://8000-prezbala-project5api-onll2lfd0l.us2.codeanyapp.com/auth/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -12,7 +12,7 @@ export class API {
   }
 
   static updateMovie(mov_id, body, token) {
-    return fetch(`https://8000-prezbala-project5api-nzyoyjptc3.us2.codeanyapp.com/api/movies/${mov_id}/`, {
+    return fetch(`https://8000-prezbala-project5api-onll2lfd0l.us2.codeanyapp.com/api/movies/${mov_id}/`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -23,7 +23,7 @@ export class API {
   }
 
   static createMovie(body, token) {
-    return fetch(`https://8000-prezbala-project5api-nzyoyjptc3.us2.codeanyapp.com/api/movies/`, {
+    return fetch(`https://8000-prezbala-project5api-onll2lfd0l.us2.codeanyapp.com/api/movies/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ export class API {
   }
 
   static deleteMovie(mov_id, token) {
-    return fetch(`https://8000-prezbala-project5api-nzyoyjptc3.us2.codeanyapp.com/api/movies/${mov_id}/`, {
+    return fetch(`https://8000-prezbala-project5api-onll2lfd0l.us2.codeanyapp.com/api/movies/${mov_id}/`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
