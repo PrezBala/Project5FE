@@ -1,10 +1,12 @@
 import React, {useState, useEffect }from 'react';
 import { API } from '../api-service';
+import { useCookies } from 'react-cookie';
 
 function MovieForm(props) {
 
     const [ title, setTitle ] = useState('');
     const [ description, setDescription ] = useState('');
+    const [token] = useCookies(['mr-token']);
 
     useEffect( () => {
         setTitle(props.movie.title);
