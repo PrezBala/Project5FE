@@ -39,8 +39,8 @@ function Auth(){
             <input id="password"type="text" placeholder="password" value={password}
                 onChange={ evt=> setPassword (evt.target.value)}  /><br/>
                 { isLoginView ?
-                    <button onClick={loginClicked} disabled={isDisabled}>Login</button> : 
-                    <button onClick={registerClicked} disabled={isDisabled}>Register</button>
+                    <button onClick={loginClicked}>Login</button> : 
+                    <button onClick={registerClicked}>Register</button>
                 }
 
             { isLoginView ?
