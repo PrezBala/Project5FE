@@ -22,24 +22,18 @@ function App() {
   }, [data])
 
   useEffect( () => {
-    console.log(token);
     if(!token['mr-token']) window.location.href = '/';
   }, [token])
-
-
 
   const loadMovie = movie => {
     setSelectedMovie(movie);
     setEditedMovie(null);
-
   }
-
   const editClicked = movie => {
     setEditedMovie(movie);
     setSelectedMovie(null);
   }
-
-  const updatedMovie = movie => {
+  const udpatedMovie = movie => {
     const newMovies = movies.map( mov => {
       if (mov.id === movie.id) {
         return movie;
@@ -52,23 +46,26 @@ function App() {
     setEditedMovie({title: '', description: ''});
     setSelectedMovie(null);
   }
-
+  
   const movieCreated = movie => {
     const newMovies = [...movies, movie];
     setMovies(newMovies);
   }
-
   const removeClicked = movie => {
     const newMovies = movies.filter( mov => mov.id !== movie.id);
     setMovies(newMovies);
   }
-
   const logoutUser = () => {
     deleteToken(['mr-token']);
   }
 
   if(loading) return <h1>Loading...</h1>
   if(error) return <h1>Error loading movies</h1>
+
+  if (movies['detail'] === "Invalid token.") {
+    logoutUser();
+    return <h1>Wrong credentials, please refresh and try again</h1>
+  }
   
   return (
     <div className="App">
@@ -76,25 +73,25 @@ function App() {
         <h1>
           <FontAwesomeIcon icon={faFilm}/>
           <span>Movie rater</span>
-        </h1>
-        <FontAwesomeIcon icon={faSignOutAlt} onClick={logoutUser}/>
+       </h1>
+       <FontAwesomeIcon icon={faSignOutAlt} onClick={logoutUser}/>
       </header>
       <div className="layout">
-        <div>
-          <MovieList 
-            movies={movies} 
-            movieClicked={loadMovie} 
-            editClicked={editClicked}
-            removeClicked={removeClicked}
+          <div>
+            <MovieList
+              movies={movies}
+              movieClicked={loadMovie}
+              editClicked={editClicked}
+              removeClicked={removeClicked}
             />
-          <button onClick={ newMovie}>New Movie</button>
+            <button onClick={newMovie}>New movie</button>
+          </div>
+          <MovieDetails movie={selectedMovie} updateMovie={loadMovie}/>
+          { editedMovie ? 
+          <MovieForm movie={editedMovie} udpatedMovie={udpatedMovie} movieCreated={movieCreated}/> 
+          : null}
+          
         </div>
-        <MovieDetails movie={selectedMovie} updateMovie={loadMovie}/>
-        { editedMovie ? 
-        <MovieForm movie ={editedMovie} updatedMovie={updatedMovie} movieCreated={movieCreated} /> 
-        : null }
-
-      </div>
     </div>
   );
 }
