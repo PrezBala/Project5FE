@@ -37,7 +37,7 @@ function Auth(){
               onChange={ evt=> setUsername(evt.target.value)}
         /><br/>
         <label htmlFor="password">Password</label><br/>
-        <input id="password" type="password" placeholder="Descriptiom" value={password}
+        <input id="password" type="password" placeholder="Description" value={password}
             onChange={ evt=> setPassword(evt.target.value)} /><br/>
             { isLoginView ?
               <button onClick={loginClicked} disabled={isDisabled}>Login</button> : 
