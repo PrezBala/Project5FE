@@ -14,7 +14,7 @@ function MovieDetails(props) {
   };
 
   const rateClicked = (rate) => (evt) => {
-    fetch(`https://8000-prezbala-project5api-onll2lfd0l.us2.codeanyapp.com/api/movies/${mov.id}/rate_movie/`, {
+    fetch(`https://8000-prezbala-project5api-g8tw0q6j1r.us2.codeanyapp.com/api/movies/${mov.id}/rate_movie/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ function MovieDetails(props) {
   };
 
   const getDetails = () => {
-    fetch(`https://8000-prezbala-project5api-onll2lfd0l.us2.codeanyapp.com/api/movies/${mov.id}/`, {
+    fetch(`https://8000-prezbala-project5api-g8tw0q6j1r.us2.codeanyapp.com/api/movies/${mov.id}/`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ function MovieDetails(props) {
                 <FontAwesomeIcon
                   key={i}
                   icon={faStar}
-                  className={highlighted > i - 1 ? 'purple' : ''}
+                  className={highlighted > i - 1 ? 'gold' : ''}
                   onMouseEnter={highlightRate(i)}
                   onMouseLeave={highlightRate(-1)}
                   onClick={rateClicked(i)}
