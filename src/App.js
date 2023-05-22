@@ -73,7 +73,10 @@ function App() {
           <FontAwesomeIcon icon={faFilm} />
           <span>Movie rater</span>
         </h1>
-        <FontAwesomeIcon icon={faSignOutAlt} onClick={logoutUser} />
+        <div onClick={logoutUser} className="logout-button"> 
+          <FontAwesomeIcon icon={faSignOutAlt} />
+          <span>Log out</span> 
+        </div>
       </header>
       <div className="layout">
         <div>
