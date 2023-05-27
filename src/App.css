@@ -12,7 +12,7 @@ h1, h2, h3 {
 .App {
     padding: 20px;
     min-height: 100vh;
-    background-color: #FAFAFA;
+    background-color: transparent;
     color: #333;
 }
 

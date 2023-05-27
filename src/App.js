@@ -11,6 +11,8 @@ import { useFetch } from './hooks/useFetch';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
+import backgroundVideo from './video/bluey.mp4';
+
 const Movie1 = "/images/pikachu.png";
 const Movie2 = "/images/pikachu.png";
 const Movie3 = "/images/pikachu.png";
@@ -73,6 +75,9 @@ function App() {
 
   return (
     <div className="App">
+      <video autoPlay loop muted className="background-video">
+        <source src={backgroundVideo} type="video/mp4" />
+      </video>
       <header className="App-header">
         <h1>
           <FontAwesomeIcon icon={faFilm} />
