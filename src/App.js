@@ -11,12 +11,66 @@ import { useFetch } from './hooks/useFetch';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
-import Movie1 from '/workspaces/Project5FE/public/images/moviereel.jpeg';
-import Movie2 from '/workspaces/Project5FE/public/images/moviereel.jpeg';
-import Movie3 from '/workspaces/Project5FE/public/images/moviereel.jpeg';
+// Replace 'moviereel1.jpeg', 'moviereel2.jpeg' and 'moviereel3.jpeg' with your image names
+const Movie1 = "/images/pikachu.png";
+const Movie2 = "/images/pikachu.png";
+const Movie3 = "/images/pikachu.png";
 
 function App() {
-  // your code here...
+  const [movies, setMovies] = useState([]);
+  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [editedMovie, setEditedMovie] = useState(null);
+  const [token, setToken, deleteToken] = useCookies(['mr-token']);
+  const [data, loading, error] = useFetch();
+
+  useEffect(() => {
+    setMovies(data);
+  }, [data]);
+
+  useEffect(() => {
+    if (!token['mr-token']) window.location.href = '/';
+  }, [token]);
+
+  const loadMovie = movie => {
+    setSelectedMovie(movie);
+    setEditedMovie(null);
+  };
+
+  const editClicked = movie => {
+    setEditedMovie(movie);
+    setSelectedMovie(null);
+  };
+
+  const updatedMovie = movie => {
+    const newMovies = movies.map(mov => (mov.id === movie.id ? movie : mov));
+    setMovies(newMovies);
+  };
+
+  const newMovie = () => {
+    setEditedMovie({ title: '', description: '' });
+    setSelectedMovie(null);
+  };
+
+  const movieCreated = movie => {
+    const newMovies = [...movies, movie];
+    setMovies(newMovies);
+  };
+
+  const removeClicked = movie => {
+    const newMovies = movies.filter(mov => mov.id !== movie.id);
+    setMovies(newMovies);
+  };
+
+  const logoutUser = () => {
+    deleteToken(['mr-token']);
+  };
+
+  if (loading) return <h1>Loading...</h1>;
+  if (error) return <h1>Error loading movies</h1>;
+  if (movies['detail'] === 'Invalid token.') {
+    logoutUser();
+    return <h1>Wrong credentials, please refresh and try again</h1>;
+  }
 
   return (
     <div className="App">
