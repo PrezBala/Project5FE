@@ -11,7 +11,6 @@ import { useFetch } from './hooks/useFetch';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
-// Replace 'moviereel1.jpeg', 'moviereel2.jpeg' and 'moviereel3.jpeg' with your image names
 const Movie1 = "/images/pikachu.png";
 const Movie2 = "/images/pikachu.png";
 const Movie3 = "/images/pikachu.png";
@@ -85,17 +84,17 @@ function App() {
         </div>
       </header>
 
-      <Carousel autoPlay infiniteLoop useKeyboardArrows dynamicHeight>
+      <Carousel autoPlay infiniteLoop useKeyboardArrows dynamicHeight showThumbs={false}>
         <div>
-            <img src={Movie1} alt="Movie 1" />
+            <img src={Movie1} alt="Movie 1" className="carousel-image" />
             <p className="legend">Legend 1</p>
         </div>
         <div>
-            <img src={Movie2} alt="Movie 2" />
+            <img src={Movie2} alt="Movie 2" className="carousel-image" />
             <p className="legend">Legend 2</p>
         </div>
         <div>
-            <img src={Movie3} alt="Movie 3" />
+            <img src={Movie3} alt="Movie 3" className="carousel-image" />
             <p className="legend">Legend 3</p>
         </div>
       </Carousel>

@@ -181,3 +181,16 @@ h1 .fa-film {
 .logout-button .fa-sign-out-alt {
     font-size: 1.2rem;
 }
+
+.carousel-image {
+    max-width: 25%;
+    max-height: 25%;
+    object-fit: cover;
+}
+
+.legend {
+    background: darkblue !important;
+    bottom: 0px !important; 
+  }
+
+  
