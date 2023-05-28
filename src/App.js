@@ -86,31 +86,30 @@ function App() {
         </div>
       </header>
 
-<div className="carousel-container">
-  <Carousel autoPlay infiniteLoop useKeyboardArrows dynamicHeight showThumbs={false}>
-    <div>
-      <img src={Movie1} alt="Movie 1" className="carousel-image" />
-      <p className="legend">Legend 1</p>
-    </div>
-    <div>
-      <img src={Movie2} alt="Movie 2" className="carousel-image" />
-      <p className="legend">Legend 2</p>
-    </div>
-    <div>
-      <img src={Movie3} alt="Movie 3" className="carousel-image" />
-      <p className="legend">Legend 3</p>
-    </div>
-    <div>
-      <img src={Movie4} alt="Movie 4" className="carousel-image" />
-      <p className="legend">Legend 4</p>
-    </div>
-    <div>
-      <img src={Movie5} alt="Movie 5" className="carousel-image" />
-      <p className="legend">Legend 5</p>
-    </div>
-  </Carousel>
-</div>
-
+      <div className="carousel-container">
+        <Carousel autoPlay infiniteLoop useKeyboardArrows dynamicHeight showThumbs={false}>
+          <div>
+            <img src={Movie1} alt="Movie 1" className="carousel-image" />
+            <p className="legend">Legend 1</p>
+          </div>
+          <div>
+            <img src={Movie2} alt="Movie 2" className="carousel-image" />
+            <p className="legend">Legend 2</p>
+          </div>
+          <div>
+            <img src={Movie3} alt="Movie 3" className="carousel-image" />
+            <p className="legend">Legend 3</p>
+          </div>
+          <div>
+            <img src={Movie4} alt="Movie 4" className="carousel-image" />
+            <p className="legend">Legend 4</p>
+          </div>
+          <div>
+            <img src={Movie5} alt="Movie 5" className="carousel-image" />
+            <p className="legend">Legend 5</p>
+          </div>
+        </Carousel>
+      </div>
 
       <div className="layout">
         <div>
@@ -131,6 +130,9 @@ function App() {
           />
         ) : null}
       </div>
+      <footer className="App-footer">
+        <p>Some footer content here</p>
+      </footer>
     </div>
   );
 }
