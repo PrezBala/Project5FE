@@ -11,9 +11,11 @@ import { useFetch } from './hooks/useFetch';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
-const Movie1 = "/images/pikachu.png";
-const Movie2 = "/images/pikachu.png";
-const Movie3 = "/images/pikachu.png";
+const Movie1 = "/images/avatarr.jpeg";
+const Movie2 = "/images/avengers.jpg";
+const Movie3 = "/images/flash.jpg";
+const Movie4 = "/images/harry.jpg";
+const Movie5 = "/images/mario.jpg";
 
 function App() {
   const [movies, setMovies] = useState([]);
