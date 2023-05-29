@@ -78,7 +78,7 @@ function App() {
       <header className="App-header">
         <h1>
           <FontAwesomeIcon icon={faFilm} />
-          <span>Movie rater</span>
+          <span>FlickRater</span>
         </h1>
         <div onClick={logoutUser} className="logout-button"> 
           <FontAwesomeIcon icon={faSignOutAlt} />
@@ -130,9 +130,14 @@ function App() {
           />
         ) : null}
       </div>
-      <footer className="App-footer">
-        <p>Some footer content here</p>
-      </footer>
+<footer className="App-footer">
+    <div className="footer-content">
+        <p>Created by Prasena Balachandran</p>
+        <p>Project 5</p>
+    </div>
+</footer>
+
+
     </div>
   );
 }
