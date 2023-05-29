@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { API } from '../api-service';
 import { useCookies } from 'react-cookie';
-import './Auth.css';
+import backgroundImage from '../images/cinema.jpeg'; 
 
 function Auth() {
   const [username, setUsername] = useState('');
@@ -29,7 +29,10 @@ function Auth() {
   const isDisabled = username.length === 0 || password.length === 0;
 
   return (
-    <div className="Auth">
+    <div
+      className="Auth"
+      style={{ backgroundImage: `url(${backgroundImage})` }} // Set the background image
+    >
       <header className="Auth-header">
         {isLoginView ? <h1>Login</h1> : <h1>Register</h1>}
       </header>
