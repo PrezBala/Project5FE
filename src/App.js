@@ -4,12 +4,11 @@ import MovieList from './components/movie-list';
 import MovieDetails from './components/movie-details';
 import MovieForm from './components/movie-form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFilm } from '@fortawesome/free-solid-svg-icons';
-import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faFilm, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { useCookies } from 'react-cookie';
 import { useFetch } from './hooks/useFetch';
 import { Carousel } from 'react-responsive-carousel';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 
 const Movie1 = "/images/avatarr.jpeg";
 const Movie2 = "/images/avengers.jpg";
@@ -84,6 +83,9 @@ function App() {
           <FontAwesomeIcon icon={faSignOutAlt} />
           <span>Log out</span> 
         </div>
+        <div className="admin-section" onClick={() => window.location.href = '/admin'}>
+          <span>Admin Section</span>
+        </div>
       </header>
 
       <div className="carousel-container">
@@ -130,13 +132,13 @@ function App() {
           />
         ) : null}
       </div>
-<footer className="App-footer">
-    <div className="footer-content">
-        <p>Created by Prasena Balachandran</p>
-        <p>Project 5</p>
-    </div>
-</footer>
 
+      <footer className="App-footer">
+        <div className="footer-content">
+          <p>Created by Prasena Balachandran</p>
+          <p>Project 5</p>
+        </div>
+      </footer>
 
     </div>
   );

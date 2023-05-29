@@ -1,8 +1,9 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client'; // Updated import statement
+import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App';
 import Auth from './components/auth';
+import AdminPanel from './components/adminpanel'; 
 import reportWebVitals from './reportWebVitals';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import { CookiesProvider } from 'react-cookie';
@@ -15,6 +16,7 @@ function Router() {
           <Routes>
             <Route path="/" element={<Auth />} />
             <Route path="/movies" element={<App />} />
+            <Route path="/admin" element={<AdminPanel />} /> 
           </Routes>
         </BrowserRouter>
       </CookiesProvider>
@@ -22,6 +24,6 @@ function Router() {
   );
 }
 
-createRoot(document.getElementById('root')).render(<Router />); // Updated rendering using createRoot
+createRoot(document.getElementById('root')).render(<Router />); 
 
 reportWebVitals();
