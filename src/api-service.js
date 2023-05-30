@@ -1,14 +1,15 @@
 export class API {
 
-    static getAdminData(token) {
-        return fetch("https://project-5-movierater.herokuapp.com/admin/", {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Token ${token}` 
-          }
-        }).then( resp => resp.json())
-      }
+  
+  static deleteUser(user_id, token) {
+    return fetch(`https://project-5-movierater.herokuapp.com/api/users/${user_id}/`, {
+      method: 'DELETE',
+      headers: {
+         'Content-Type': 'application/json',
+         'Authorization': `Token ${token}`
+        }
+    });
+  }  
 
   static loginUser(body) {
     return fetch(`https://project-5-movierater.herokuapp.com/auth/`, {

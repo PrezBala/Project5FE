@@ -1,0 +1,38 @@
+.admin-panel {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .section {
+    margin-top: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 1rem;
+    background-color: #f9f9f9;
+  }
+  
+  .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 0.5rem 0;
+  }
+  
+  .item-detail {
+    flex: 1;
+  }
+  
+  .item-button {
+    padding: 0.5rem 1rem;
+    color: #fff;
+    background-color: #f44336;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .item-button:hover {
+    background-color: #d32f2f;
+  }
+  
