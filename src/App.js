@@ -3,12 +3,14 @@ import './App.css';
 import MovieList from './components/movie-list';
 import MovieDetails from './components/movie-details';
 import MovieForm from './components/movie-form';
+import AdminPanel from './components/adminpanel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilm, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { useCookies } from 'react-cookie';
 import { useFetch } from './hooks/useFetch';
 import { Carousel } from 'react-responsive-carousel';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; 
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Route, Routes } from 'react-router-dom'; // Importing Routes and Route
 
 const Movie1 = "/images/avatarr.jpeg";
 const Movie2 = "/images/avengers.jpg";
@@ -133,13 +135,16 @@ function App() {
         ) : null}
       </div>
 
+      <Routes>
+        <Route path="/admin" element={<AdminPanel />} /> 
+      </Routes>
+
       <footer className="App-footer">
         <div className="footer-content">
           <p>Created by Prasena Balachandran</p>
           <p>Project 5</p>
         </div>
       </footer>
-
     </div>
   );
 }

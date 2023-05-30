@@ -3,22 +3,21 @@
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    background-image: url('/public/images/cinema.jpeg'); /* add this line */
-    background-position: center; /* add this line */
-    background-size: cover; /* add this line */
+    background-image: url('/public/images/cinema.jpeg'); 
+    background-position: center; 
+    background-size: cover; 
   }
-  /* rest of your css stays the same */
-  
-  
+
   .Auth-header {
     text-align: center;
     margin-top: 2rem;
   }
   
   .Auth-header h1 {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     font-weight: bold;
     color: #007bff;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; /* add this line */
   }
   
   .Auth-header p {
@@ -28,11 +27,11 @@
   }
   
   .login-container {
-    width: 300px;
+    width: 400px;
     background-color: #fff;
     border-radius: 8px;
     padding: 2rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   

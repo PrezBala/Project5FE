@@ -1,4 +1,15 @@
 export class API {
+
+    static getAdminData(token) {
+        return fetch("https://project-5-movierater.herokuapp.com/admin/", {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Token ${token}` 
+          }
+        }).then( resp => resp.json())
+      }
+
   static loginUser(body) {
     return fetch(`https://project-5-movierater.herokuapp.com/auth/`, {
       method: 'POST',

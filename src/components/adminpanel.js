@@ -1,52 +1,33 @@
-import React, { useEffect, useState } from 'react';
-import { useCookies } from 'react-cookie';
+import React from 'react';
+import { useFetch } from '../hooks/useFetch';  
 
 function AdminPanel() {
-  const [token] = useCookies(['mr-token']);
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [usersData, usersLoading, usersError] = useFetch('/api/users');
+  const [moviesData, moviesLoading, moviesError] = useFetch('/api/movies');
 
-  useEffect(() => {
-    const validateToken = async () => {
-      try {
-        // Perform an API call to validate the token and check the user role
-        const response = await fetch('/api/validate-token', {
-          headers: {
-            Authorization: `Bearer ${token['mr-token']}`,
-          },
-        });
+  if (usersLoading || moviesLoading) return <h1>Loading...</h1>;
+  if (usersError) return <h1>Error loading users: {usersError}</h1>;
+  if (moviesError) return <h1>Error loading movies: {moviesError}</h1>;
 
-        if (response.ok) {
-          const data = await response.json();
-          if (data.role === 'admin') {
-            setIsAdmin(true);
-          } else {
-            setIsAdmin(false);
-          }
-        } else {
-          setIsAdmin(false);
-        }
-      } catch (error) {
-        setIsAdmin(false);
-        console.error('Error validating token:', error);
-      }
-    };
-
-    if (token['mr-token']) {
-      validateToken();
-    } else {
-      setIsAdmin(false);
-    }
-  }, [token]);
-
-  if (!isAdmin) {
-    return <h1>Unauthorized Access</h1>;
-  }
-
-  // Render the admin-specific functionality and UI
   return (
     <div>
       <h1>Admin Panel</h1>
-      {/* Add your admin-specific UI components and features here */}
+
+      <h2>Users</h2>
+      {usersData.map((user) => (
+        <div key={user.id}>
+          <p>{user.name}</p>
+          {/* Additional user information and controls here */}
+        </div>
+      ))}
+
+      <h2>Movies</h2>
+      {moviesData.map((movie) => (
+        <div key={movie.id}>
+          <p>{movie.title}</p>
+          {/* Additional movie information and controls here */}
+        </div>
+      ))}
     </div>
   );
 }
