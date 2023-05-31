@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { API } from '../api-service';  
 import { useCookies } from 'react-cookie';
+import { useNavigate } from 'react-router-dom';
 import './adminpanel.css'; 
 
 function AdminPanel() {
@@ -8,6 +9,7 @@ function AdminPanel() {
   const [usersData, setUsersData] = useState([]);
   const [usersLoading, setUsersLoading] = useState(true);
   const [usersError, setUsersError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchUsers() {
@@ -24,8 +26,13 @@ function AdminPanel() {
     fetchUsers();
   }, [token]);
 
-  const deleteUser = (userId) => {
-    API.deleteUser(userId, token['mr-token']).then(() => window.location.reload());
+  const deleteUser = async (userId) => {
+    await API.deleteUser(userId, token['mr-token']);
+    window.location.reload();
+  }
+
+  const goBack = () => {
+    navigate(-1);
   }
 
   if (usersLoading) return <h1>Loading...</h1>;
@@ -34,6 +41,7 @@ function AdminPanel() {
   return (
     <div className="admin-panel">
       <h1>Admin Panel</h1>
+      <button onClick={goBack}>Back</button>
 
       <section className="section">
         <h2>Users</h2>

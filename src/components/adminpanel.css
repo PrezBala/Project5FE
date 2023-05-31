@@ -1,22 +1,49 @@
-.admin-panel {
-    width: 80%;
-    margin: 0 auto;
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('/public/images/cinema.jpeg'); /* Adjust this path as necessary */
+    background-size: cover; /* Ensures the image covers the entire page */
+    background-repeat: no-repeat; /* Ensures the image does not repeat */
+    background-position: center; /* Ensures the image is centered */
+  }
+  
+  .admin-panel {
+    width: 90%;
+    margin: 3em auto;
+    background-color: #000033; /* Dark Blue */
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    border: 1px solid #FFD700; /* Gold */
+    border-radius: 10px;
+    padding: 2em;
+    color: #FFD700; /* Gold */
+  }
+  
+  .admin-panel h1 {
+    text-align: center;
+    margin-bottom: 2em;
+    border-bottom: 2px solid #FFD700; /* Gold */
+    padding-bottom: 1em;
   }
   
   .section {
-    margin-top: 2rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 1rem;
-    background-color: #f9f9f9;
+    margin-top: 3em;
+    border: 2px solid #FFD700; /* Gold */
+    border-radius: 10px;
+    padding: 1em;
+    background-color: #000033; /* Dark Blue */
+    color: #FFD700; /* Gold */
   }
   
   .item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #ddd;
-    padding: 0.5rem 0;
+    border-bottom: 2px dashed #FFD700;
+    padding: 1em 0;
+  }
+  
+  .item:last-child {
+    border-bottom: none;
   }
   
   .item-detail {
@@ -24,15 +51,31 @@
   }
   
   .item-button {
-    padding: 0.5rem 1rem;
-    color: #fff;
-    background-color: #f44336;
+    padding: 1em 2em;
+    background-color: #FFD700; /* Gold */
+    color: #000033; /* Dark Blue */
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
   }
   
   .item-button:hover {
-    background-color: #d32f2f;
+    background-color: #cdaa00; /* Darker Gold */
+  }
+  
+  button {
+    margin-bottom: 2em;
+    padding: 1em 2em;
+    background-color: #FFD700; /* Gold */
+    color: #000033; /* Dark Blue */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #cdaa00; /* Darker Gold */
   }
   
