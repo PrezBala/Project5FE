@@ -7,8 +7,11 @@ import './adminpanel.css';
 function AdminPanel() {
   const [token] = useCookies(['mr-token']);
   const [usersData, setUsersData] = useState([]);
+  const [moviesData, setMoviesData] = useState([]);
   const [usersLoading, setUsersLoading] = useState(true);
+  const [moviesLoading, setMoviesLoading] = useState(true);
   const [usersError, setUsersError] = useState(null);
+  const [moviesError, setMoviesError] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -23,7 +26,19 @@ function AdminPanel() {
       }
     }
 
+    async function fetchMovies() {
+      try {
+        const movies = await API.getMovies(token['mr-token']);
+        setMoviesData(movies);
+        setMoviesLoading(false);
+      } catch (error) {
+        setMoviesError(error.message);
+        setMoviesLoading(false);
+      }
+    }
+
     fetchUsers();
+    fetchMovies();
   }, [token]);
 
   const deleteUser = async (userId) => {
@@ -31,12 +46,18 @@ function AdminPanel() {
     window.location.reload();
   }
 
+  const deleteMovie = async (movieId) => {
+    await API.deleteMovie(movieId, token['mr-token']);
+    window.location.reload();
+  }
+
   const goBack = () => {
     navigate(-1);
   }
 
-  if (usersLoading) return <h1>Loading...</h1>;
+  if (usersLoading || moviesLoading) return <h1>Loading...</h1>;
   if (usersError) return <h1>Error loading users: {usersError}</h1>;
+  if (moviesError) return <h1>Error loading movies: {moviesError}</h1>;
 
   return (
     <div className="admin-panel">
@@ -53,7 +74,15 @@ function AdminPanel() {
         ))}
       </section>
 
-      {/* Rest of the component */}
+      <section className="section">
+        <h2>Movies</h2>
+        {moviesData.map((movie) => (
+          <div key={movie.id} className="item">
+            <p className="item-detail">{movie.title}</p>
+            <button className="item-button" onClick={() => deleteMovie(movie.id)}>Delete {movie.title}</button>
+          </div>
+        ))}
+      </section>
     </div>
   );
 }
