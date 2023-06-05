@@ -10,7 +10,7 @@ import { useCookies } from 'react-cookie';
 import { useFetch } from './hooks/useFetch';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Route, Routes } from 'react-router-dom'; // Importing Routes and Route
+import { Route, Routes } from 'react-router-dom'; 
 
 const Movie1 = "/images/avatarr.jpeg";
 const Movie2 = "/images/avengers.jpg";

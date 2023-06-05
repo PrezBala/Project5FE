@@ -22,13 +22,13 @@ h1, h2, h3 {
     text-align: center;
     font-size: 2rem;
     padding: 20px;
-    background-color: #800020; 
+    background-color: #800020; /* Wine color */
     color: #FFF;
 }
 
 button {
     color: #FFF;  
-    background-color: #800020;
+    background-color: #800020; /* Wine color */
     padding: 10px 20px;
     border-radius: 5px;  
     font-weight: bold;
@@ -40,7 +40,7 @@ button {
 }
 
 button:hover {
-    background-color: #660017; 
+    background-color: #660017; /* Darker wine color */
     transform: scale(1.05);
     box-shadow: 0 1rem 2rem rgba(0,0,0,0.15);
 }
@@ -150,9 +150,10 @@ input, textarea {
     margin: 8px 0;
     font-size: 0.8rem;
     background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid #FAFAFA;
-    color: #FAFAFA;
+    border: 1px solid #000000;
+    color: #000000; 
 }
+
 
 .fa-trash {
     color: crimson;
@@ -193,7 +194,7 @@ h1 .fa-film {
 }
 
 .legend {
-    background: #800020 !important; 
+    background: #800020 !important; /* Wine color */
     bottom: 0px !important; 
 }
 
@@ -202,7 +203,7 @@ h1 .fa-film {
 }
 
 .App-footer {
-    background-color: rgba(128, 0, 32, 0.5); 
+    background-color: rgba(128, 0, 32, 0.5); /* Wine color with opacity */
     color: #fff;
     position: fixed;
     left: 0;
