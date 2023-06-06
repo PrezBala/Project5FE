@@ -1,44 +1,44 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: url('/public/images/cinema.jpeg'); /* Adjust this path as necessary */
-    background-size: cover; /* Ensures the image covers the entire page */
-    background-repeat: no-repeat; /* Ensures the image does not repeat */
-    background-position: center; /* Ensures the image is centered */
+    background-image: url('/public/images/cinema.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
   }
   
   .admin-panel {
     width: 90%;
     margin: 3em auto;
-    background-color: #000033; /* Dark Blue */
+    background-color: #800020; 
     box-shadow: 0 0 20px rgba(0,0,0,0.3);
-    border: 1px solid #FFD700; /* Gold */
+    border: 1px solid #ffffff; 
     border-radius: 10px;
     padding: 2em;
-    color: #FFD700; /* Gold */
+    color: #ffffff; 
   }
   
   .admin-panel h1 {
     text-align: center;
     margin-bottom: 2em;
-    border-bottom: 2px solid #FFD700; /* Gold */
+    border-bottom: 2px solid #ffffff; 
     padding-bottom: 1em;
   }
   
   .section {
     margin-top: 3em;
-    border: 2px solid #FFD700; /* Gold */
+    border: 2px solid #ffffff; 
     border-radius: 10px;
     padding: 1em;
-    background-color: #000033; /* Dark Blue */
-    color: #FFD700; /* Gold */
+    background-color: #800020; 
+    color: #ffffff; 
   }
   
   .item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px dashed #FFD700;
+    border-bottom: 2px dashed #ffffff;
     padding: 1em 0;
   }
   
@@ -52,8 +52,8 @@ body {
   
   .item-button {
     padding: 1em 2em;
-    background-color: #FFD700; /* Gold */
-    color: #000033; /* Dark Blue */
+    background-color: #ffffff; 
+    color: #800020; 
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -61,14 +61,14 @@ body {
   }
   
   .item-button:hover {
-    background-color: #cdaa00; /* Darker Gold */
+    background-color: #c0a080; 
   }
   
   button {
     margin-bottom: 2em;
     padding: 1em 2em;
-    background-color: #FFD700; /* Gold */
-    color: #000033; /* Dark Blue */
+    background-color: #ffffff; 
+    color: #800020; 
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -76,6 +76,6 @@ body {
   }
   
   button:hover {
-    background-color: #cdaa00; /* Darker Gold */
+    background-color: #c0a080; 
   }
   
