@@ -14,7 +14,7 @@ h1, h2, h3 {
     padding: 20px;
     min-height: 100vh;
     color: #FFF;
-    background-image: url('/images/blackback.jpg');
+    background-image: url('/public/images/blackback.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
