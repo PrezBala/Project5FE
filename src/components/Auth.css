@@ -16,8 +16,8 @@
   .Auth-header h1 {
     font-size: 3.5rem;
     font-weight: bold;
-    color: #007bff;
-    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; /* add this line */
+    color: #722F37;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; 
   }
   
   .Auth-header p {
@@ -53,7 +53,7 @@
   .login-container button {
     width: 100%;
     padding: 0.75rem;
-    background-color: #007bff;
+    background-color: #722F37;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -71,12 +71,10 @@
     text-align: center;
     font-size: 0.9rem;
     cursor: pointer;
-    color: #007bff;
+    color: #722F37;
     margin-top: 1rem;
   }
   
   .login-container p:hover {
     text-decoration: underline;
   }
-  
-  
