@@ -13,9 +13,13 @@ h1, h2, h3 {
     width: 97vw;
     padding: 20px;
     min-height: 100vh;
-    background-color: #000000; 
     color: #FFF;
+    background-image: url('/images/blackback.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
+
 
 .App-header {
     position: relative;
@@ -24,7 +28,7 @@ h1, h2, h3 {
     padding: 20px;
     background-color: #800020; /* Wine color */
     color: #FFF;
-    background-image: url('/images/wineback.jpg'); /* Path to your image */
+    background-image: url('/public/images/wineback.jpg'); /* Path to your image */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
