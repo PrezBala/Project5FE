@@ -253,71 +253,88 @@ h1 .fa-film {
 
 /* Phone (portrait) */
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 2) {
-  .App {
-    width: 97vw;
-    padding: 10px;
+    .App {
+      width: 97vw;
+      padding: 10px;
+    }
+    input,
+    textarea {
+      max-width: 80%;
+    }
+  
+    h1,
+    .movie-header {
+      font-size: 1.2rem;
+    }
+  
+    .logout-button,
+    .admin-section {
+      font-size: 0.5rem;
+      margin-right: 5px;
+    }
+  
+    .rate-container {
+      scale: 70%;
+    }
+  
+    .movie-header {
+      scale: 90%;
+    }
+  
+    .login-message {
+      font-size: 0.8rem; 
+    }
   }
-  input,
-  textarea {
-    max-width: 80%;
+  
+  /* Phone (landscape) */
+  @media only screen and (min-device-width: 812px) and (max-device-width: 375px) and (-webkit-min-device-pixel-ratio: 2) {
+    .App {
+      width: 100vw;
+      padding: 5px;
+    }
+    input,
+    textarea {
+      max-width: 100%;
+    }
+  
+    h1,
+    .movie-header {
+      font-size: 1.5rem;
+    }
+  
+    .logout-button,
+    .admin-section {
+      font-size: 0.6rem;
+    }
+  
+    .login-message {
+      font-size: 0.8rem; 
+    }
   }
-
-  h1,
-  .movie-header {
-    font-size: 1.2rem;
+  
+  /* iPad */
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+    .App {
+      width: 97vw;
+      padding: 20px;
+    }
+    input,
+    textarea {
+      max-width: 80%;
+    }
+  
+    h1,
+    .movie-header {
+      font-size: 1.5rem;
+    }
+  
+    .logout-button,
+    .admin-section {
+      font-size: 0.8rem;
+    }
+  
+    .login-message {
+      font-size: 1rem; 
+    }
   }
-
-  .logout-button {
-  }
-
-  .rate-container {
-    scale: 80%;
-  }
-  .movie-header {
-    scale: 90%;
-  }
-}
-
-/* Phone (landscape) */
-@media only screen and (min-device-width: 812px) and (max-device-width: 375px) and (-webkit-min-device-pixel-ratio: 2) {
-  .App {
-    width: 100vw;
-    padding: 5px;
-  }
-  input,
-  textarea {
-    max-width: 100%;
-  }
-
-  h1,
-  .movie-header {
-    font-size: 1.5rem;
-  }
-
-  .logout-button {
-    font-size: 0.6rem;
-  }
-}
-
-/* iPad */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
-  .App {
-    width: 97vw;
-    padding: 20px;
-  }
-  input,
-  textarea {
-    max-width: 80%;
-  }
-
-  h1,
-  .movie-header {
-    font-size: 1.5rem;
-  }
-
-  .logout-button {
-    font-size: 0.8rem;
-  }
-
-
-}
+  

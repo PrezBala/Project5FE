@@ -95,7 +95,7 @@ function App() {
         <div className="admin-section" onClick={() => window.location.href = '/admin'}>
           <span>Admin Section</span>
         </div>
-        <div className="welcome-message">Welcome, {userName}</div> {/* Added welcome message */}
+        <div className="welcome-message login-message">You are now logged in</div>
       </header>
 
       <div className="carousel-container">
