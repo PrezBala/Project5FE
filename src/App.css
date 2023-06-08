@@ -237,3 +237,75 @@ h1 .fa-film {
 .footer-content p {
     margin: 0; 
 }
+
+/* Phone (portrait) */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+
+    .App {
+      width: 97vw;
+      padding: 10px;
+    }
+    input, textarea {
+      max-width: 80%; 
+    }
+
+    h1, .movie-header {
+      font-size: 1.2rem; 
+    }
+    
+    .logout-button {
+
+    }
+}
+
+/* Phone (landscape) */
+@media only screen 
+  and (min-device-width: 812px) 
+  and (max-device-width: 375px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+
+    .App {
+      width: 100vw;
+      padding: 5px;
+    }
+    input, textarea {
+      max-width: 100%; 
+    }
+
+    h1, .movie-header {
+      font-size: 1.5rem; 
+    }
+    
+    .logout-button {
+      font-size: 0.6rem; 
+    }
+}
+
+/* iPad */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+
+    .App {
+      width: 97vw;
+      padding: 20px;
+    }
+    input, textarea {
+      max-width: 80%; 
+    }
+
+    h1, .movie-header {
+      font-size: 1.5rem; 
+    }
+    
+    .logout-button {
+      font-size: 0.8rem; 
+    }
+}
