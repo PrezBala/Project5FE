@@ -260,6 +260,10 @@ h1 .fa-film {
     .logout-button {
 
     }
+
+    .rate-container {
+       scale: 80%
+    }
 }
 
 /* Phone (landscape) */
@@ -284,6 +288,7 @@ h1 .fa-film {
     .logout-button {
       font-size: 0.6rem; 
     }
+    
 }
 
 /* iPad */

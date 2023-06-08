@@ -79,3 +79,49 @@
   .login-container p:hover {
     text-decoration: underline;
   }
+
+  /* Phone (portrait) */
+@media only screen 
+and (min-device-width: 375px) 
+and (max-device-width: 812px) 
+and (-webkit-min-device-pixel-ratio: 2) {
+
+.login-container {
+  width: 80%;
+}
+
+.Auth-header h1 {
+  font-size: 2.5rem;
+}
+
+.Auth-header p {
+  font-size: 1rem;
+}
+
+.login-container label {
+  font-size: 0.9rem;
+}
+
+.login-container input {
+  font-size: 0.9rem;
+}
+
+.login-container button {
+  font-size: 0.9rem;
+}
+
+.login-container p {
+  font-size: 0.8rem;
+}
+}
+
+/* Tablet */
+@media only screen 
+and (min-device-width: 768px) 
+and (max-device-width: 1024px) 
+and (-webkit-min-device-pixel-ratio: 2) {
+
+.login-container {
+  width: 400px;
+}
+}
