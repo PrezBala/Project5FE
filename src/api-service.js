@@ -1,6 +1,6 @@
 export class API {
     static async getUsers(token) {
-      const response = await fetch(`https://project-5-movierater.herokuapp.com/api/users/`, {
+      const response = await fetch(`https://8000-prezbala-project5api-g8tw0q6j1r.us2.codeanyapp.com/api/users/`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -11,7 +11,7 @@ export class API {
     }
   
     static async deleteUser(user_id, token) {
-      await fetch(`https://project-5-movierater.herokuapp.com/api/users/${user_id}/`, {
+      await fetch(`https://8000-prezbala-project5api-g8tw0q6j1r.us2.codeanyapp.com/api/users/${user_id}/`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -21,7 +21,7 @@ export class API {
     }  
   
     static async loginUser(body) {
-      const response = await fetch(`https://project-5-movierater.herokuapp.com/auth/`, {
+      const response = await fetch(`https://8000-prezbala-project5api-g8tw0q6j1r.us2.codeanyapp.com/auth/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ export class API {
     }
   
     static async registerUser(body) {
-      const response = await fetch(`https://project-5-movierater.herokuapp.com/api/users/`, {
+      const response = await fetch(`https://8000-prezbala-project5api-g8tw0q6j1r.us2.codeanyapp.com/api/users/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -43,7 +43,7 @@ export class API {
     }
   
     static async getMovies(token) {
-      const response = await fetch("https://project-5-movierater.herokuapp.com/api/movies/", {
+      const response = await fetch("https://8000-prezbala-project5api-g8tw0q6j1r.us2.codeanyapp.com/api/movies/", {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -54,7 +54,7 @@ export class API {
     }
     
     static async updateMovie(mov_id, body, token) {
-      const response = await fetch(`https://project-5-movierater.herokuapp.com/api/movies/${mov_id}/`, {
+      const response = await fetch(`https://8000-prezbala-project5api-g8tw0q6j1r.us2.codeanyapp.com/api/movies/${mov_id}/`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ export class API {
     }
   
     static async createMovie(body, token) {
-      const response = await fetch(`https://project-5-movierater.herokuapp.com/api/movies/`, {
+      const response = await fetch(`https://8000-prezbala-project5api-g8tw0q6j1r.us2.codeanyapp.com/api/movies/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -78,7 +78,7 @@ export class API {
     }
   
     static async deleteMovie(mov_id, token) {
-      await fetch(`https://project-5-movierater.herokuapp.com/api/movies/${mov_id}/`, {
+      await fetch(`https://8000-prezbala-project5api-g8tw0q6j1r.us2.codeanyapp.com/api/movies/${mov_id}/`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
