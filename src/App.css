@@ -241,6 +241,16 @@ h1 .fa-film {
   margin: 0;
 }
 
+.admin-section {
+    font-size: 1rem; 
+    position: absolute;
+    right: 20px;
+    top: 70%;  
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+
 /* Phone (portrait) */
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 2) {
   .App {
@@ -308,4 +318,6 @@ h1 .fa-film {
   .logout-button {
     font-size: 0.8rem;
   }
+
+
 }

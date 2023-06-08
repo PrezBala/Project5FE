@@ -10,7 +10,7 @@ import { useCookies } from 'react-cookie';
 import { useFetch } from './hooks/useFetch';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Route, Routes } from 'react-router-dom'; 
+import { Route, Routes } from 'react-router-dom';
 
 const Movie1 = "/images/avatarr.jpeg";
 const Movie2 = "/images/avengers.jpg";
@@ -24,13 +24,20 @@ function App() {
   const [editedMovie, setEditedMovie] = useState(null);
   const [token, setToken, deleteToken] = useCookies(['mr-token']);
   const [data, loading, error] = useFetch();
+  const [userName, setUserName] = useState('');
 
   useEffect(() => {
     setMovies(data);
   }, [data]);
 
   useEffect(() => {
-    if (!token['mr-token']) window.location.href = '/';
+    if (!token['mr-token']) {
+      window.location.href = '/';
+    } else {
+      const userName = token['mr-token']; 
+      console.log(userName); // Log the token object
+      setUserName(userName);
+    }
   }, [token]);
 
   const loadMovie = movie => {
@@ -81,13 +88,14 @@ function App() {
           <FontAwesomeIcon icon={faFilm} />
           <span>FlickRater</span>
         </h1>
-        <div onClick={logoutUser} className="logout-button"> 
+        <div onClick={logoutUser} className="logout-button">
           <FontAwesomeIcon icon={faSignOutAlt} />
-          <span>Log out</span> 
+          <span>Log out</span>
         </div>
         <div className="admin-section" onClick={() => window.location.href = '/admin'}>
           <span>Admin Section</span>
         </div>
+        <div className="welcome-message">Welcome, {userName}</div> {/* Added welcome message */}
       </header>
 
       <div className="carousel-container">
@@ -136,7 +144,7 @@ function App() {
       </div>
 
       <Routes>
-        <Route path="/admin" element={<AdminPanel />} /> 
+        <Route path="/admin" element={<AdminPanel />} />
       </Routes>
 
       <footer className="App-footer">
