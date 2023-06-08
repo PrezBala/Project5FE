@@ -15,7 +15,7 @@ function Router() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Auth />} />
-            <Route path="/movies" element={<App />} />
+            <Route path="/movies/*" element={<App />} /> {/* Changed this line */}
             <Route path="/admin" element={<AdminPanel />} /> 
           </Routes>
         </BrowserRouter>

@@ -10,7 +10,7 @@ import { useCookies } from 'react-cookie';
 import { useFetch } from './hooks/useFetch';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Route, Routes } from 'react-router-dom'; 
+import { Route, Routes, Navigate } from 'react-router-dom';
 
 const Movie1 = "/images/avatarr.jpeg";
 const Movie2 = "/images/avengers.jpg";
@@ -22,7 +22,8 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [editedMovie, setEditedMovie] = useState(null);
-  const [token, setToken, deleteToken] = useCookies(['mr-token']);
+  const [token, , deleteToken] = useCookies(['mr-token']);
+  const [isStaff, , deleteIsStaff] = useCookies(['is-staff']);
   const [data, loading, error] = useFetch();
 
   useEffect(() => {
@@ -32,6 +33,8 @@ function App() {
   useEffect(() => {
     if (!token['mr-token']) window.location.href = '/';
   }, [token]);
+
+  const isAdmin = isStaff['is-staff'] === 'true';
 
   const loadMovie = movie => {
     setSelectedMovie(movie);
@@ -65,6 +68,8 @@ function App() {
 
   const logoutUser = () => {
     deleteToken(['mr-token']);
+    deleteIsStaff(['is-staff']);
+    window.location.href = '/';
   };
 
   if (loading) return <h1>Loading...</h1>;
@@ -81,13 +86,15 @@ function App() {
           <FontAwesomeIcon icon={faFilm} />
           <span>FlickRater</span>
         </h1>
-        <div onClick={logoutUser} className="logout-button"> 
+        <div onClick={logoutUser} className="logout-button">
           <FontAwesomeIcon icon={faSignOutAlt} />
-          <span>Log out</span> 
+          <span>Log out</span>
         </div>
-        <div className="admin-section" onClick={() => window.location.href = '/admin'}>
-          <span>Admin Section</span>
-        </div>
+        {isAdmin && (
+          <div className="admin-section" onClick={() => Navigate('/admin')}>
+            <span>Admin Section</span>
+          </div>
+        )}
       </header>
 
       <div className="carousel-container">
@@ -136,7 +143,8 @@ function App() {
       </div>
 
       <Routes>
-        <Route path="/admin" element={<AdminPanel />} /> 
+        {!isAdmin && <Route path="/admin" element={<Navigate to="/" />} />}
+        {isAdmin && <Route path="/admin" element={<AdminPanel />} />}
       </Routes>
 
       <footer className="App-footer">

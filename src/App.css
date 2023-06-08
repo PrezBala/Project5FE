@@ -1,68 +1,70 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto+Slab:wght@300;400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto+Slab:wght@300;400;500&display=swap");
 
-body, input, button {
-  font-family: 'Poppins', sans-serif;
+body,
+input,
+button {
+  font-family: "Poppins", sans-serif;
   color: #333;
 }
 
-h1, h2, h3 {
-  font-family: 'Roboto Slab', serif;
+h1,
+h2,
+h3 {
+  font-family: "Roboto Slab", serif;
 }
 
 .App {
-    width: 97vw;
-    padding: 20px;
-    min-height: 100vh;
-    color: #FFF;
-    background-image: url('/public/images/blackback.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+  width: 97vw;
+  padding: 20px;
+  min-height: 100vh;
+  color: #fff;
+  background-image: url("/public/images/blackback.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
-
 
 .App-header {
-    position: relative;
-    text-align: center;
-    font-size: 2rem;
-    padding: 20px;
-    background-color: #800020; /* Wine color */
-    color: #FFF;
-    background-image: url('/public/images/wineback.jpg'); /* Path to your image */
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+  position: relative;
+  text-align: center;
+  font-size: 2rem;
+  padding: 20px;
+  background-color: #800020; 
+  color: #fff;
+  background-image: url("/public/images/wineback.jpg"); 
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
-
 button {
-    color: #FFF;  
-    background-color: #800020; /* Wine color */
-    padding: 10px 20px;
-    border-radius: 5px;  
-    font-weight: bold;
-    font-size: 0.8rem;
-    outline: none;
-    cursor: pointer; 
-    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  color: #fff;
+  background-color: #800020; 
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
 button:hover {
-    background-color: #660017; /* Darker wine color */
-    transform: scale(1.05);
-    box-shadow: 0 1rem 2rem rgba(0,0,0,0.15);
+  background-color: #660017; 
+  transform: scale(1.05);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
 }
 
 button:disabled {
-    color: #f3f3f3;
-    background-color: #444;
-    cursor: not-allowed;
+  color: #f3f3f3;
+  background-color: #444;
+  cursor: not-allowed;
 }
 
-.layout{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
 }
 
 .orange {
@@ -99,21 +101,21 @@ button:disabled {
 }
 
 .movie-item {
-    display: grid;
-    grid-template-columns: 1fr auto auto;
-    border-bottom: 1px solid #FF0000; 
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-    margin-top: 20px;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15); /* Shadow color changed to black */
-    background-color: #800020; /* Movie items are now wine color */
-    padding-top: 20px; /* This line will add padding to the top of the container */
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  border-bottom: 1px solid #ff0000;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); 
+  background-color: #800020; 
+  padding-top: 20px; 
 }
 
 .movie-item:hover {
-    transform: scale(1.02);
-    box-shadow: 0 1rem 2rem rgba(0,0,0,0.1);
+  transform: scale(1.02);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
 }
 
 .movie-item svg {
@@ -122,195 +124,188 @@ button:disabled {
 }
 
 .movie-item h2 {
-    margin: 0;
-    cursor: pointer;
-    color: #FFFFFF; 
-    font-size: 1.2rem;
-    font-weight: 600;
-    padding-top: 20px;
-    padding-left: 20px; /* New code: Move the text a bit to the right */
+  margin: 0;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding-top: 20px;
+  padding-left: 20px; 
 }
 
 .movie-item button {
-    margin-left: auto;
-    order: 3;
+  margin-left: auto;
+  order: 3;
 }
 
 .movie-item img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    grid-row: 1 / span 2;
-    grid-column: 1;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  grid-row: 1 / span 2;
+  grid-column: 1;
 }
 
 .movie-item p {
-    grid-column: 2;
-    grid-row: 2;
-    color: #666; 
-    font-size: 0.8rem;
-    padding-top: 20px;
-    padding-left: 20px; /* New code: Move the text a bit to the right */
+  grid-column: 2;
+  grid-row: 2;
+  color: #666;
+  font-size: 0.8rem;
+  padding-top: 20px;
+  padding-left: 20px; 
 }
 
 .login-container {
-    width: 50%;
-    margin: 0 25%;
+  width: 50%;
+  margin: 0 25%;
 }
 
-input, textarea {
-    width: 100%;
-    max-width: 90%; 
-    padding: 10px;
-    margin: 8px 0;
-    font-size: 0.8rem;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid #FFFFFF;
-    color: #FFFFFF; 
+input,
+textarea {
+  width: 100%;
+  max-width: 90%;
+  padding: 10px;
+  margin: 8px 0;
+  font-size: 0.8rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid #ffffff;
+  color: #ffffff;
 }
 
 .fa-trash {
-    color: #30D5C8;
+  color: #30d5c8;
 }
 
 h1 {
-    color: orange;
+  color: orange;
 }
 
 h1 .fa-film {
-    color: white;
-    transform: rotate(30deg);
+  color: white;
+  transform: rotate(30deg);
 }
 
 .logout-button {
-    position: absolute;
-    top: 50%; 
-    right: 20px; 
-    transform: translateY(-50%);
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    font-size: 0.8rem; 
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 0.8rem;
 }
 
 .logout-button span {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 .logout-button .fa-sign-out-alt {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 .carousel-image {
-    width: 100%;
-    height: 40vh;  
-    object-fit: cover;
+  width: 100%;
+  height: 40vh;
+  object-fit: cover;
 }
 
 .legend {
-    background: #800020 !important; /* Wine color */
-    bottom: 0px !important; 
+  background: #800020 !important; 
+  bottom: 0px !important;
 }
 
 .carousel-container {
-    margin-top: 20px; 
+  margin-top: 20px;
 }
 
 .App-footer {
-    background-color: rgba(128, 0, 32, 0.5); /* Wine color with opacity */
-    color: #fff;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 50px; 
+  background-color: rgba(128, 0, 32, 0.5); 
+  color: #fff;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
 }
 
 .footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-    padding: 0 20px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 20px;
 }
 
 .footer-content p {
-    margin: 0; 
+  margin: 0;
 }
 
 /* Phone (portrait) */
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 812px) 
-  and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 2) {
+  .App {
+    width: 97vw;
+    padding: 10px;
+  }
+  input,
+  textarea {
+    max-width: 80%;
+  }
 
+  h1,
+  .movie-header {
+    font-size: 1.2rem;
+  }
 
-    .App {
-      width: 97vw;
-      padding: 10px;
-    }
-    input, textarea {
-      max-width: 80%; 
-    }
+  .logout-button {
+  }
 
-    h1, .movie-header {
-      font-size: 1.2rem; 
-    }
-    
-    .logout-button {
-
-    }
-
-    .rate-container {
-       scale: 80%
-    }
+  .rate-container {
+    scale: 80%;
+  }
+  .movie-header {
+    scale: 90%;
+  }
 }
 
 /* Phone (landscape) */
-@media only screen 
-  and (min-device-width: 812px) 
-  and (max-device-width: 375px) 
-  and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (min-device-width: 812px) and (max-device-width: 375px) and (-webkit-min-device-pixel-ratio: 2) {
+  .App {
+    width: 100vw;
+    padding: 5px;
+  }
+  input,
+  textarea {
+    max-width: 100%;
+  }
 
+  h1,
+  .movie-header {
+    font-size: 1.5rem;
+  }
 
-    .App {
-      width: 100vw;
-      padding: 5px;
-    }
-    input, textarea {
-      max-width: 100%; 
-    }
-
-    h1, .movie-header {
-      font-size: 1.5rem; 
-    }
-    
-    .logout-button {
-      font-size: 0.6rem; 
-    }
-    
+  .logout-button {
+    font-size: 0.6rem;
+  }
 }
 
 /* iPad */
-@media only screen 
-  and (min-device-width: 768px) 
-  and (max-device-width: 1024px) 
-  and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+  .App {
+    width: 97vw;
+    padding: 20px;
+  }
+  input,
+  textarea {
+    max-width: 80%;
+  }
 
+  h1,
+  .movie-header {
+    font-size: 1.5rem;
+  }
 
-    .App {
-      width: 97vw;
-      padding: 20px;
-    }
-    input, textarea {
-      max-width: 80%; 
-    }
-
-    h1, .movie-header {
-      font-size: 1.5rem; 
-    }
-    
-    .logout-button {
-      font-size: 0.8rem; 
-    }
+  .logout-button {
+    font-size: 0.8rem;
+  }
 }
