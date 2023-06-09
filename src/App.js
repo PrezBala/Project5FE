@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useCookies } from 'react-cookie';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFilm, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { Route, Routes } from 'react-router-dom';
+import { Carousel } from 'react-responsive-carousel';
 import './App.css';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import MovieList from './components/movie-list';
 import MovieDetails from './components/movie-details';
 import MovieForm from './components/movie-form';
 import AdminPanel from './components/adminpanel';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFilm, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
-import { useCookies } from 'react-cookie';
 import { useFetch } from './hooks/useFetch';
-import { Carousel } from 'react-responsive-carousel';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Route, Routes } from 'react-router-dom';
 
 const Movie1 = "/images/avatarr.jpeg";
 const Movie2 = "/images/avengers.jpg";
@@ -19,26 +19,20 @@ const Movie4 = "/images/harry.jpg";
 const Movie5 = "/images/mario.jpg";
 
 function App() {
-  const [movies, setMovies] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState(null);
-  const [editedMovie, setEditedMovie] = useState(null);
-  const [token, setToken, deleteToken] = useCookies(['mr-token']);
-  const [data, loading, error] = useFetch();
-  const [userName, setUserName] = useState('');
-
-  useEffect(() => {
-    setMovies(data);
-  }, [data]);
-
-  useEffect(() => {
-    if (!token['mr-token']) {
-      window.location.href = '/';
-    } else {
-      const userName = token['mr-token']; 
-      console.log(userName); // Log the token object
-      setUserName(userName);
-    }
-  }, [token]);
+    const [movies, setMovies] = useState([]);
+    const [selectedMovie, setSelectedMovie] = useState(null);
+    const [editedMovie, setEditedMovie] = useState(null);
+    const [token, /* setToken */, deleteToken] = useCookies(['mr-token']); 
+    const [data, loading, error] = useFetch();
+  
+    useEffect(() => {
+      setMovies(data);
+    }, [data]);
+  
+    useEffect(() => {
+      if (!token['mr-token']) window.location.href = '/';
+    }, [token]);
+  
 
   const loadMovie = movie => {
     setSelectedMovie(movie);
