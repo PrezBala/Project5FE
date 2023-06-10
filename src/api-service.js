@@ -1,25 +1,5 @@
 export class API {
-    static async getUsers(token) {
-      const response = await fetch(`https://8000-prezbala-project5api-g8tw0q6j1r.us2.codeanyapp.com/api/users/`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Token ${token}`
-        }
-      });
-      return response.json();
-    }
-  
-    static async deleteUser(user_id, token) {
-      await fetch(`https://8000-prezbala-project5api-g8tw0q6j1r.us2.codeanyapp.com/api/users/${user_id}/`, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Token ${token}`
-        }
-      });
-    }  
-  
+
     static async loginUser(body) {
       const response = await fetch(`https://8000-prezbala-project5api-g8tw0q6j1r.us2.codeanyapp.com/auth/`, {
         method: 'POST',

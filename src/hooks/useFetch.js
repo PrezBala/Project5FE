@@ -17,7 +17,6 @@ function useFetch() {
         setData(data)
         setLoading(false);
       }
-      
       fetchData();
     }, []);
     return [data, loading, error]

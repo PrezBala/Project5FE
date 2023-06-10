@@ -8,20 +8,17 @@ function Auth() {
   const [password, setPassword] = useState('');
   const [isLoginView, setIsLoginView] = useState(true);
 
-  const [token, setToken, setUser] = useCookies(['mr-token', 'mr-user']);  // add 'mr-user'
+  const [token, setToken] = useCookies(['mr-token']);
 
   useEffect(() => {
     if (token['mr-token']) window.location.href = '/movies';
   }, [token]);
 
   const loginClicked = () => {
-    API.loginUser({ username, password })
-      .then((resp) => {
-        setToken('mr-token', resp.token);
-        setUser('mr-user', username);  // store username in cookies
-      })
-      .catch((error) => console.log(error));
-  };
+    API.loginUser({username, password})
+      .then( resp => setToken('mr-token', resp.token))
+      .catch( error => console.log(error))
+  }
 
   const registerClicked = () => {
     API.registerUser({ username, password })
