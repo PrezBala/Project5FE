@@ -36,6 +36,7 @@ function App() {
   const loadMovie = movie => {
     setSelectedMovie(movie);
     setEditedMovie(null);
+    updatedMovie(movie)
   };
 
   const editClicked = movie => {
