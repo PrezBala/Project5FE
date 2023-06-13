@@ -18,7 +18,7 @@ function useFetch() {
         setLoading(false);
       }
       fetchData();
-    }, []);
+    }, [token]);
     return [data, loading, error]
 }
 

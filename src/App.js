@@ -23,7 +23,10 @@ function App() {
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [editedMovie, setEditedMovie] = useState(null);
   const [token, /* setToken */, deleteToken] = useCookies(['mr-token']);
+  const [isStaff, /* setIsStaff */, deleteStaff] = useCookies(['is-staff']); 
   const [data, loading, error] = useFetch();
+
+  console.log('App isStaff:', isStaff['is-staff']);
 
   useEffect(()=>{
     setMovies(data);
@@ -66,6 +69,7 @@ function App() {
 
   const logoutUser = () => {
     deleteToken(['mr-token']);
+    deleteStaff(['is-staff']);
   };
 
   if (loading) return <h1>Loading...</h1>;
@@ -74,6 +78,8 @@ function App() {
     logoutUser();
     return <h1>Wrong credentials, please refresh and try again</h1>;
   }
+
+  console.log(document.cookie); // Log all cookies
 
   return (
     <div className="App">
@@ -86,9 +92,11 @@ function App() {
           <FontAwesomeIcon icon={faSignOutAlt} />
           <span>Log out</span>
         </div>
-        <div className="admin-section" onClick={() => window.location.href = '/admin'}>
-          <span>Admin Section</span>
-        </div>
+        {isStaff['is-staff'] === 'true' ? (
+          <div className="admin-section" onClick={() => window.location.href = '/admin'}>
+            <span>Admin Section</span>
+          </div>
+        ) : null}
         <div className="welcome-message login-message">You are now logged in</div>
       </header>
 

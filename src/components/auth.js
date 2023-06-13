@@ -9,16 +9,25 @@ function Auth() {
   const [isLoginView, setIsLoginView] = useState(true);
 
   const [token, setToken] = useCookies(['mr-token']);
-
+  const [isStaff, setIsStaff] = useCookies(['is-staff']);  // Add this line
+  
   useEffect(() => {
     if (token['mr-token']) window.location.href = '/movies';
   }, [token]);
 
   const loginClicked = () => {
     API.loginUser({username, password})
-      .then( resp => setToken('mr-token', resp.token))
-      .catch( error => console.log(error))
+        .then( resp => {
+            console.log('Server response:', resp);  // Log the full response
+            setToken('mr-token', resp.token);
+            setIsStaff('is-staff', resp.is_staff);  // Set the 'is-staff' cookie
+            console.log('Cookie is_staff:', isStaff['is-staff']);  // Log the 'is-staff' cookie value
+            console.log('Document cookie:', document.cookie);  // Log all cookies
+        })
+        .catch( error => console.log(error))
   }
+  
+  
 
   const registerClicked = () => {
     API.registerUser({ username, password })
