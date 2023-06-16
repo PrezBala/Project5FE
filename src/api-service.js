@@ -2,14 +2,17 @@ export class API {
 
     static async loginUser(body) {
         const response = await fetch(`https://8000-prezbala-project5api-g8tw0q6j1r.us2.codeanyapp.com/api/users/login/`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(body)
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(body)
         });
-        return response.json();
-      }
+        const resp = await response.json();
+        document.cookie = `mr-userid=${resp.user_id}; path=/`;
+        return resp;
+    }
+    
   
     static async registerUser(body) {
       const response = await fetch(`https://8000-prezbala-project5api-g8tw0q6j1r.us2.codeanyapp.com/api/users/`, {

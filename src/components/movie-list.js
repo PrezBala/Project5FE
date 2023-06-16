@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit } from '@fortawesome/free-solid-svg-icons';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { API } from '../api-service';
 import { useCookies } from 'react-cookie';
 
 function MovieList(props) {
   const [token] = useCookies(['mr-token']);
+  const [userId] = useCookies(['mr-userid']);
+
+  useEffect(() => {
+    console.log('User ID:', userId['mr-userid']);
+  }, [userId]);  // Add userId to the dependency array
 
   const movieClicked = movie => evt => {
     props.movieClicked(movie);
@@ -29,8 +33,12 @@ function MovieList(props) {
           return (
             <div key={movie.id} className="movie-item">
               <h2 onClick={movieClicked(movie)}>{movie.title}</h2>
-              <FontAwesomeIcon icon={faEdit} onClick={() => editClicked(movie)} />
-              <FontAwesomeIcon icon={faTrash} onClick={() => removeClicked(movie)} />
+              {parseInt(userId['mr-userid']) === movie.creator && (
+                <>
+                  <FontAwesomeIcon icon={faEdit} onClick={() => editClicked(movie)} />
+                  <FontAwesomeIcon icon={faTrash} onClick={() => removeClicked(movie)} />
+                </>
+              )}
             </div>
           );
         })}

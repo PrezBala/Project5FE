@@ -8,8 +8,8 @@ function Auth() {
   const [password, setPassword] = useState('');
   const [isLoginView, setIsLoginView] = useState(true);
 
-  const [token, setToken] = useCookies(['mr-token']);
-  const [isStaff, setIsStaff] = useCookies(['is-staff']);  // Add this line
+  const [token, setToken, , setUserId] = useCookies(['mr-token', 'mr-userid']);  // Add 'mr-userid' here
+  const [isStaff, setIsStaff] = useCookies(['is-staff']);  // Keep this line as is
   
   useEffect(() => {
     if (token['mr-token']) window.location.href = '/movies';
@@ -21,11 +21,13 @@ function Auth() {
             console.log('Server response:', resp);  // Log the full response
             setToken('mr-token', resp.token);
             setIsStaff('is-staff', resp.is_staff);  // Set the 'is-staff' cookie
+            setUserId('mr-userid', resp.user_id); // Assume resp.user_id is the user id from server response.
             console.log('Cookie is_staff:', isStaff['is-staff']);  // Log the 'is-staff' cookie value
             console.log('Document cookie:', document.cookie);  // Log all cookies
         })
         .catch( error => console.log(error))
   }
+
   
   
 
