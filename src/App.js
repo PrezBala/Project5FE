@@ -12,11 +12,9 @@ import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Route, Routes } from 'react-router-dom';
 
-const Movie1 = "/images/avatarr.jpeg";
-const Movie2 = "/images/avengers.jpg";
-const Movie3 = "/images/flash.jpg";
-const Movie4 = "/images/harry.jpg";
-const Movie5 = "/images/mario.jpg";
+const Movie1 = "/images/batman.png";
+const Movie2 = "/images/harry.jpg";
+const Movie3 = "/images/it.png";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -104,23 +102,15 @@ function App() {
         <Carousel autoPlay infiniteLoop useKeyboardArrows dynamicHeight showThumbs={false}>
           <div>
             <img src={Movie1} alt="Movie 1" className="carousel-image" />
-            <p className="legend">Legend 1</p>
+            <p className="legend">Batman</p>
           </div>
           <div>
             <img src={Movie2} alt="Movie 2" className="carousel-image" />
-            <p className="legend">Legend 2</p>
+            <p className="legend">Harry Potter and the philosphers stone</p>
           </div>
           <div>
             <img src={Movie3} alt="Movie 3" className="carousel-image" />
-            <p className="legend">Legend 3</p>
-          </div>
-          <div>
-            <img src={Movie4} alt="Movie 4" className="carousel-image" />
-            <p className="legend">Legend 4</p>
-          </div>
-          <div>
-            <img src={Movie5} alt="Movie 5" className="carousel-image" />
-            <p className="legend">Legend 5</p>
+            <p className="legend">I.T Chapter 2</p>
           </div>
         </Carousel>
       </div>
