@@ -1,5 +1,18 @@
 export class API {
 
+    
+    static async getUser(userId, token) {
+        const response = await fetch(`https://8000-prezbala-project5api-g8tw0q6j1r.us2.codeanyapp.com/api/users/${userId}/`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Token ${token}` 
+          }
+        });
+        return response.json();
+      }
+      
+
     static async loginUser(body) {
         const response = await fetch(`https://8000-prezbala-project5api-g8tw0q6j1r.us2.codeanyapp.com/api/users/login/`, {
             method: 'POST',

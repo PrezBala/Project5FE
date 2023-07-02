@@ -6,12 +6,20 @@ import './adminpanel.css';
 
 function AdminPanel() {
   const [token] = useCookies(['mr-token']);
+  const [userId] = useCookies(['mr-userid']);
+  const [isAdmin, setIsAdmin] = useState(false);
   const [moviesData, setMoviesData] = useState([]);
   const [moviesLoading, setMoviesLoading] = useState(true);
   const [moviesError, setMoviesError] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
+    API.getUser(userId['mr-userid'], token['mr-token'])
+      .then(response => {
+        setIsAdmin(response.is_staff);  // assuming the staff status is in 'is_staff' field
+      })
+      .catch(error => console.log(error));
+
     async function fetchMovies() {
       try {
         const movies = await API.getMovies(token['mr-token']);
@@ -24,7 +32,7 @@ function AdminPanel() {
     }
 
     fetchMovies();
-  }, [token]);
+  }, [token, userId]);
 
   const deleteMovie = async (movieId) => {
     await API.deleteMovie(movieId, token['mr-token']);
@@ -33,6 +41,11 @@ function AdminPanel() {
 
   const goBack = () => {
     navigate(-1);
+  }
+
+  if (!isAdmin) {
+    navigate('/');  // Redirect to home page if user is not admin
+    return null;
   }
 
   if (moviesLoading) return <h1>Loading...</h1>;
