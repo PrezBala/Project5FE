@@ -70,8 +70,8 @@ function App() {
     deleteStaff(['is-staff']);
   };
 
-  if (loading) return <h1>Loading...</h1>;
-  if (error) return <h1>Error loading movies</h1>;
+  if (loading) return <div className="full-screen-message"><h1>Loading...</h1></div>;
+  if (error) return <div className="full-screen-message"><h1>Error loading movies</h1></div>;
   if (movies['detail'] === 'Invalid token.') {
     logoutUser();
     return <h1>Wrong credentials, please refresh and try again</h1>;

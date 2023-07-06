@@ -37,6 +37,22 @@ h3 {
   background-position: center;
 }
 
+.full-screen-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #800020;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 2rem;
+    z-index: 9999;
+  }
+
+  
 button {
   color: #fff;
   background-color: #800020; 
@@ -220,14 +236,15 @@ h1 .fa-film {
 }
 
 .App-footer {
-  background-color: rgba(128, 0, 32, 0.5); 
-  color: #fff;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 50px;
-}
+    background-color: rgba(128, 0, 32, 0.5); 
+    color: #fff;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+  }
+  
 
 .footer-content {
   display: flex;

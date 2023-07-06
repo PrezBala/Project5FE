@@ -65,6 +65,12 @@ function AdminPanel() {
           </div>
         ))}
       </section>
+      <footer className="App-footer">
+        <div className="footer-content">
+          <p>Created by Prasena Balachandran</p>
+          <p>Project 5</p>
+        </div>
+      </footer>
     </div>
   );
 }

@@ -34,11 +34,11 @@ function MovieForm(props) {
             { props.movie ? (
             <div>
                 <label htmlFor="title">Title</label><br/>
-                <input id="title" type="text" placeholder="title" value={title}
+                <input id="title" type="text" placeholder="title - do not exceed 32 characters" value={title}
                     onChange={ evt=> setTitle(evt.target.value)}
                 /><br/>
                 <label htmlFor="description">Description</label><br/>
-                <textarea id="description"type="text" placeholder="Description" value={description}
+                <textarea id="description"type="text" placeholder="Description - do not exceed 32 characters" value={description}
                     onChange={ evt=> setDescription(evt.target.value)}
                 ></textarea><br/>
                 {  props.movie.id ?
