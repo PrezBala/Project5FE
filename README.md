@@ -4,7 +4,7 @@ Flickrater is a dedicated movie review platform designed for passionate movie lo
 
 Each movie listed on Flickrater is accompanied by a concise description, providing users with essential information about the film. Moreover, users can find star ratings assigned by fellow members of the Flickrater community. These ratings serve as valuable insights, reflecting the collective opinion of the site's users.
 
-Flickrater aims to provide an interactive and engaging platform where movie enthusiasts can connect, discover new films, and share their thoughts through ratings. It serves as a hub for movie discussions and enables users to explore a diverse range of cinematic experiences.
+Flickrater aims to provide an interactive and engaging platform where movie enthusiasts can connect, discover new films, and share their thoughts through ratings.
 
 <img src="public/images/readme/sshome.png">
 
@@ -33,13 +33,15 @@ Flickrater aims to provide an interactive and engaging platform where movie enth
   - [Run Locally](#run-locally)
 - [Credit](#credit)
 
-# Development Goals
+# The Strategy Plane
 
-The objective of this API is to function as a backend service, enabling the FlickRater frontend application to carry out Create, Read, Update, and Delete operations through its user interface.
+## Site Goals
 
-# Agile Planning
+The primary objective of FlickRater, a website designed for movie enthusiasts, is to provide a comprehensive movie listing complete with detailed descriptions and overall ratings. Additionally, it aims to foster an interactive user community by allowing individuals to add their own movie listings to the growing collection.
 
-This project was developed following agile principles, with a series of four sprints. Each feature was prioritized and labeled as either "must-have," "should-have," or "could-have." We began by implementing the must-have features, followed by the should-have features, and finally addressed the could-have features if time and resources permitted. This approach ensured the delivery of a comprehensive website, with optional enhancements added based on capacity.
+## Agile Planning
+
+This project was developed following agile principles, with a series of sprints. Each feature was prioritized and labeled as either "must-have," "should-have," or "could-have." We began by implementing the must-have features, followed by the should-have features, and finally addressed the could-have features if time and resources permitted. This approach ensured the delivery of a comprehensive website, with optional enhancements added based on capacity.
 
 The Kanban board, created using GitHub Projects, facilitated project management and can be accessed [here](https://github.com/users/PrezBala/projects/1/views/1). For more detailed information on each task, simply click on the respective view.
 
@@ -47,128 +49,83 @@ The Kanban board, created using GitHub Projects, facilitated project management 
 
 ## Epics
 
-The user stories were grouped into different Epics
-
 ## Set Up
 
-This epic encompasses the crucial steps to get the Django application and Django REST Framework operational, creating a robust platform to start developing the features.
+This Epic covers all the initial setup of the React application and dependencies in order to begin coding features.
 
-## Movie Creation
+## Movie Listing Creation
 
-This epic focuses on the establishment of API endpoints and database integrations to support CRUD operations for the creation of movie posts, forming the backbone of movie content in the application.
+This Epic focuses on developing the front-end aspects of the application related to the creation of movie listings. It enables users to interface with the backend API to create, read, update, and delete their personal movie listings.
 
 ## Movie Description
 
-This epic is dedicated to designing and implementing API endpoints and database connections for the CRUD operations specifically related to the Movie description field, allowing for detailed storytelling and representation of each movie.
-
-## Custom Auth Token
-
-This epic targets the creation and handling of unique user tokens. It involves designing API endpoints and database interactions for CRUD operations of these tokens, providing a layer of security and personalization for each user in the system.
+This Epic targets the front-end development pertaining to descriptions of movie listings. It provides an avenue for users to engage with the backend API and add detailed descriptions to the movies listed.
 
 ## Movie Rating
 
-This epic covers the design and development of a comprehensive movie rating system. It includes creating API endpoints and database connections that allow users to rate each movie, offering a user-driven evaluation of each movie listing.
+This Epic encompasses the front-end development regarding movie ratings. Users are empowered to interact with the backend API to contribute their individual ratings to movies listed and view overall rating statistics. The rating system is modeled on a 5-star scale.
+
+## Profiles
+
+This Epic is centered around the front-end development concerning user profiles. It gives users the ability to engage with the backend API through the user interface. This ensures that users can only modify or delete movie listings they've personally created. It also incorporates a check to verify if the user is a staff member, thereby granting them access to the admin section if applicable.
+
 
 # User Stories
 
 By Epics
 
+Movie Listings
+
+As an authenticated user, I have the capability to create movie listings, including the addition of a title and description for each movie.
+
+As an authenticated user, I can peruse all available movie listings, scrolling seamlessly down the page without the need to click on "next page".
+
+Movie Ratings
+
+As an authenticated user, I can modify the rating for an existing movie listing.
+
+As an authenticated user, I can visualize the cumulative rating average for a particular movie listing through a 5-star rating system.
+
+As an authenticated user, I can see the total number of users who have contributed a review for a movie.
+
+Profile
+
+As an authenticated user, I am permitted to make changes exclusively to the listings I have personally created, ensuring the integrity of other users' contributions.
+
+As an authenticated administrator, I am the only user type that can gain access to the admin section, which is purposely hidden from non-admin users.
+
+As an authenticated administrator, once in the admin section, I can view all created movie listings and possess the authority to delete them if necessary.
+
 Setup
 
-As a developer, I need to establish the foundational project setup to facilitate the construction of requisite features.
-User Permissions
+As a prospective user, I am presented with clear sign-in and registration options, allowing for a streamlined and intuitive access process.
 
-As a developer, I need to build a system where users have the ability to delete and edit their own movie listings, yet are restricted from modifying others' listings.
+As a user, I require a fully responsive navigation menu for effortless site navigation regardless of the device I am using.
 
-As a developer, I need to implement a special admin section that is exclusively accessible to admin/staff users, who possess the rights to delete any movie listing.
+# Wireframe
 
-As a user, I need the capability to create a new account so that I can avail of all features that are available to registered users.
-Movie Listing Creation
+The wireframe provided below clearly demonstrates where users can register and log in. To immediately immerse visitors in the website's theme, a movie-inspired background will be displayed prominently. For the sake of visual consistency, the chosen color scheme will be maintained across the entire website.
 
-As a user, I need to have the functionality to create a new movie listing, provide a detailed description, and assign a rating through the implemented 5-star rating system.
-Movie Listing and Rating Review
+<img src="public/images/readme/wireframe1.png">
 
-As a user, I need to be able to view the total count of ratings for a specific movie listing, as well as understand its average star rating.
+A visually appealing loading screen will be incorporated for times when a page is loading, purely for aesthetic enhancement. In instances of incorrect login credentials, users will be greeted with a prompt advising them of the error and suggesting a page refresh.
 
-# API Endpoints
+<img src="public/images/readme/wireframe2.png">
 
-API Endpoints
+Upon successful login, users will be greeted with a notification confirming their logged-in status. They'll also see an image carousel cycling through various movies, designed to spark their interest. The 'Log Out' button, prominently placed in the top banner, is easily accessible. Administrators will also find the 'Admin Section' button within the same banner, although it's only visible to them.
 
-User Story:
+Users will be presented with a curated list of movies. When a movie is selected, they can view the movie's name, the current rating count, and add their own rating through a 5-star system. They also have the option to contribute their own movie listings. This can be achieved by clicking the 'New Movie' button and filling in the 'Title' and 'Description' fields.
 
-As a developer, I need to establish the base project setup for the construction of requisite features.
+<img src="public/images/readme/wireframe3.png">
 
-Implementation:
+Users have the ability to modify or delete their personal movie listings, accomplished via the 'Edit' and 'Delete' buttons located within each individual movie listing they've created. They can update the title and description of the movie, and these changes can be saved by clicking the 'Update' button.
 
-The foundational project was formulated, and a virtual environment was created with all necessary packages installed and solidified into the requirements.
+<img src="public/images/readme/wireframe4.png">
 
-Secret variables were hidden and settings were modified to distinguish between the development and production environments.
+Administrators or staff users have exclusive access to an 'Admin Section' on the webpage, accessible through an 'Admin Section' button that is only visible to these users. Upon entering this section, they can view all the movie listings created and have the ability to delete them directly from the front-end interface, which communicates with the backend API.
 
-User Story:
+<img src="public/images/readme/wireframe5.png">
 
-As a user, I need the capability to create a new account to gain access to all features exclusive to registered users.
-
-Implementation:
-
-To harness their built-in authentication system, Django rest framework and dj_rest_auth were installed, added to the URL patterns, and incorporated into the site packages.
-
-User Story:
-
-As a developer, I need to generate API views for movie enthusiasts for their utilization on the front end.
-
-Implementation:
-
-Endpoint: /api/movies
-
-Methods:
-
-POST - Utilized for creating a Movie listing.
-
-GET - Utilized for retrieving a list of Movies.
-
-Methods:
-
-GET - Utilized for viewing a Movie.
-
-PUT - Utilized for updating a movie listing.
-
-DELETE - Utilized for removing a movie listing.
-
-User Story:
-
-As a user, I need to be able to observe movie ratings.
-
-As a user, I need to have the capacity to contribute my own rating to particular movies.
-
-Implementation:
-
-Endpoint: /api/ratings
-
-Methods:
-
-POST - Utilized for adding a new rating to a movie.
-
-GET - Utilized for obtaining a list of ratings for a movie.
-
-User Story:
-
-As a developer, I need to have the ability to observe the users that have been created.
-
-Implementation:
-
-Endpoint: /api/users
-
-Methods:
-
-POST - Utilized for creating a new user.
-
-GET - Utilized for retrieving a list of users and their respective staff ratings.
-
-# Security
-
-- A permission class, named 'class IsAdminUser(permissions.BasePermission)', was implemented to ensure that only administrators are granted access to the admin section and possess the rights to delete all movie listings, among other admin-exclusive functionalities.
-
-- I've implemented a middleware.py script within my API, designed to validate whether the user making the request is authenticated or possesses superuser status. Without these credentials, access to protected sections, such as the admin area, will be denied. Any attempt by a user to access the admin page without the proper credentials will result in them being redirected to the homepage.
 
 # Technologies
 
