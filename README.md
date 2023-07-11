@@ -127,6 +127,31 @@ Administrators or staff users have exclusive access to an 'Admin Section' on the
 <img src="public/images/readme/wireframe5.png">
 
 ## Wireframe Mobile
+<<<<<<< HEAD
+=======
+
+The images below depict the wireframe for how the FlickRater webpage will be displayed on mobile devices. They demonstrate the commitment to ensuring readability and accessibility, with buttons that remain unobstructed and easily usable. Despite the smaller screen size of mobile devices, users will still be able to effortlessly provide ratings.
+
+<img src="public/images/readme/wiremobile1.png">
+
+<img src="public/images/readme/wiremobile2.png">
+
+<img src="public/images/readme/wiremobile3.png">
+
+# The Structure Plane
+
+## Features
+
+Setup
+
+As a user, I appreciate a website with a favicon that helps me quickly identify the corresponding tab for FlickRater among several open tabs.
+Implementation:
+
+I have incorporated a site favicon featuring the logo of FlickRater. This addition enables users to quickly recognize the FlickRater tab when multitasking across multiple browser tabs.
+
+<img src="public/images/readme/favicoo.png">
+
+>>>>>>> d00606da1c1140eb6f7465f4c69d1e4f4ee2af2e
 
 The images below depict the wireframe for how the FlickRater webpage will be displayed on mobile devices. They demonstrate the commitment to ensuring readability and accessibility, with buttons that remain unobstructed and easily usable. Despite the smaller screen size of mobile devices, users will still be able to effortlessly provide ratings.
 
