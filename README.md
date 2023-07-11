@@ -226,7 +226,7 @@ The user needs to ensure that the text within the fields does not exceed the 32-
 
 've made sure that the edit and delete buttons are only visible to the user who created the specific listing. In the screenshot below, you can see a listing without the buttons - one that I didn't create - and another one with the buttons, which I created.
 
-<img src="public/images/readme/ss15.png">
+<img src="public/images/readme/SS15.png">
 
 When an administrator or staff member logs in, they will see an additional text labeled "Admin section". By clicking on this, they will be navigated to the administrative panel.
 
@@ -234,7 +234,7 @@ When an administrator or staff member logs in, they will see an additional text 
 
 The image below further demonstrates that the text "Admin section" is not visible to non-staff users.
 
-<img src="public/images/readme/ss16.png">
+<img src="public/images/readme/SS16.png">
 
 Inside the admin panel, administrators can view all movie listings and have the power to delete any listing created by users. Any changes made here are also reflected in the backend.
 
