@@ -127,31 +127,6 @@ Administrators or staff users have exclusive access to an 'Admin Section' on the
 <img src="public/images/readme/wireframe5.png">
 
 ## Wireframe Mobile
-<<<<<<< HEAD
-=======
-
-The images below depict the wireframe for how the FlickRater webpage will be displayed on mobile devices. They demonstrate the commitment to ensuring readability and accessibility, with buttons that remain unobstructed and easily usable. Despite the smaller screen size of mobile devices, users will still be able to effortlessly provide ratings.
-
-<img src="public/images/readme/wiremobile1.png">
-
-<img src="public/images/readme/wiremobile2.png">
-
-<img src="public/images/readme/wiremobile3.png">
-
-# The Structure Plane
-
-## Features
-
-Setup
-
-As a user, I appreciate a website with a favicon that helps me quickly identify the corresponding tab for FlickRater among several open tabs.
-Implementation:
-
-I have incorporated a site favicon featuring the logo of FlickRater. This addition enables users to quickly recognize the FlickRater tab when multitasking across multiple browser tabs.
-
-<img src="public/images/readme/favicoo.png">
-
->>>>>>> d00606da1c1140eb6f7465f4c69d1e4f4ee2af2e
 
 The images below depict the wireframe for how the FlickRater webpage will be displayed on mobile devices. They demonstrate the commitment to ensuring readability and accessibility, with buttons that remain unobstructed and easily usable. Despite the smaller screen size of mobile devices, users will still be able to effortlessly provide ratings.
 
@@ -191,7 +166,6 @@ Following is the registration interface:
 
 <img src="public/images/readme/register.png">
 
-
 User Story:
 
 Upon launching the site, I've incorporated a loading screen.
@@ -230,9 +204,45 @@ Upon selecting the "new movie" button, the user will be faced with the following
 
 <img src="public/images/readme/ss5.png">
 
-Upon choosing an existing movie listing, the user will see the display as shown below. The movie's name is clearly identifiable, flanked by a total star rating and the count of ratings this movie has received. Users can modify the rating for each movie by selecting a star rating in the "Rate it" section.
+Upon choosing an existing movie listing, the user will see the display as shown below. The movie's name is clearly identifiable, flanked by a total star rating and the count of ratings this movie has received.
 
 <img src="public/images/readme/ss6.png">
+
+Show the total number of ratings in addition to the average star rating for the specific movie listed below.
+
+<img src="public/images/readme/ss8.png">
+
+Users can modify the rating for each movie by selecting a star rating in the "Rate it" section.
+
+<img src="public/images/readme/ss7.png">
+
+When a user opts to modify an existing movie listing, the right-hand pane refreshes, displaying the title and description fields. The user has the capability to alter the text in these fields.
+
+<img src="public/images/readme/ss9.png">
+
+The user needs to ensure that the text within the fields does not exceed the 32-character limit. If a movie listing is attempted with text beyond this limit, a message will appear in place of the listing to alert the user. This notification will disappear once the user refreshes the screen and attempts to create the listing again within the correct parameters.
+
+<img src="public/images/readme/ss14.png">
+
+'ve made sure that the edit and delete buttons are only visible to the user who created the specific listing. In the screenshot below, you can see a listing without the buttons - one that I didn't create - and another one with the buttons, which I created.
+
+<img src="public/images/readme/ss15.png">
+
+When an administrator or staff member logs in, they will see an additional text labeled "Admin section". By clicking on this, they will be navigated to the administrative panel.
+
+<img src="public/images/readme/ss11.png">
+
+The image below further demonstrates that the text "Admin section" is not visible to non-staff users.
+
+<img src="public/images/readme/ss16.png">
+
+Inside the admin panel, administrators can view all movie listings and have the power to delete any listing created by users. Any changes made here are also reflected in the backend.
+
+<img src="public/images/readme/ss12.png">
+
+I've incorporated a footer into the site to acknowledge the creator and to indicate that this is for Project 5.
+
+<img src="public/images/readme/ss13.png">
 
 ## Python Packages
 
