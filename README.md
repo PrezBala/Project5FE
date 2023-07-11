@@ -43,9 +43,9 @@ The primary objective of FlickRater, a website designed for movie enthusiasts, i
 
 This project was developed following agile principles, with a series of sprints. Each feature was prioritized and labeled as either "must-have," "should-have," or "could-have." We began by implementing the must-have features, followed by the should-have features, and finally addressed the could-have features if time and resources permitted. This approach ensured the delivery of a comprehensive website, with optional enhancements added based on capacity.
 
-The Kanban board, created using GitHub Projects, facilitated project management and can be accessed [here](https://github.com/users/PrezBala/projects/1/views/1). For more detailed information on each task, simply click on the respective view.
+The Kanban board, created using GitHub Projects, facilitated project management and can be accessed [here](https://github.com/users/PrezBala/projects/2). For more detailed information on each task, simply click on the respective view.
 
-![kanban](readme/kanban.png)
+![kanban](public/images/readme/kanban.png)
 
 ## Epics
 
@@ -126,23 +126,88 @@ Administrators or staff users have exclusive access to an 'Admin Section' on the
 
 <img src="public/images/readme/wireframe5.png">
 
+## Wireframe Mobile
 
-# Technologies
+The images below depict the wireframe for how the FlickRater webpage will be displayed on mobile devices. They demonstrate the commitment to ensuring readability and accessibility, with buttons that remain unobstructed and easily usable. Despite the smaller screen size of mobile devices, users will still be able to effortlessly provide ratings.
 
-- Django
-This is the primary framework utilized for the creation of the application.
+<img src="public/images/readme/wiremobile1.png">
 
-- Django REST Framework
-This framework is employed for the development of the API.
+<img src="public/images/readme/wiremobile2.png">
 
-- Heroku
-This platform is used for the hosting of the application.
+# The Structure Plane
 
-- Git
-This tool is utilized for version control.
+## Features
 
-- Github
-This is the repository used for the storage of the code base and documentation.
+Setup
+
+As a user, I value a website's favicon that allows me to rapidly spot the FlickRater tab amidst numerous others.
+
+Implementation:
+
+We have added a site favicon for FlickRater, featuring a moviereel image. This new feature aids users in swiftly distinguishing the FlickRater tab while navigating through multiple browser tabs.
+
+<img src="public/images/readme/favicoo.png">
+
+User Story:
+
+Upon initial visit to the site, I can view the options to log in or register.
+
+Implementation:
+
+I have added checks to recognize whether a user is logged in or out. This ensures users cannot bypass the UI and access restricted pages.
+
+Additionally, i have implemented redirects on URLs to prohibit standard users from gaining access to admin pages.
+
+Presented below is the login interface:
+
+<img src="public/images/readme/login.png">
+
+Following is the registration interface:
+
+<img src="public/images/readme/register.png">
+
+
+User Story:
+
+Upon launching the site, I've incorporated a loading screen.
+
+Implementation:
+
+I've introduced a loading screen that appears during login, logout, and when accessing the admin section, given you have the necessary admin privileges.
+
+<img src="public/images/readme/loading.png">
+
+User Story:
+
+Upon successful login, the user will be directed to the main page of FlickRater.
+
+Implementation:
+
+I've incorporated a banner at the top featuring the prominent title 'FlickRater', followed by a message confirming the user's successful login. The aim was to maintain a clean and intuitive UI. The logout button is explicitly displayed within the banner, and the admin section is also noticeable but only to those with staff user or administrator rights.
+
+Below is the image of the main banner
+
+<img src="public/images/readme/ss1.png">
+
+I've further integrated an image carousel that rotates through various movies at set intervals. This addition is purely for aesthetic purposes as it significantly enhances the overall visual appeal of the site.
+
+<img src="public/images/readme/ss2.png">
+
+The movie listing is presented as shown below, adhering to the consistent color scheme used throughout the website. The text is clear and prominent. The edit and delete icons are also distinctly visible, and are only accessible to the user who created the specific listing.
+
+<img src="public/images/readme/ss3.png">
+
+Situated at the end of all the movie listings is the "new movie" button. It's clearly visible, and upon clicking, it enables the user to generate a new movie listing.
+
+<img src="public/images/readme/ss4.png">
+
+Upon selecting the "new movie" button, the user will be faced with the following interface. They are expected to fill in both the title and description fields, and then click on the "Create" button to finalize the process.
+
+<img src="public/images/readme/ss5.png">
+
+Upon choosing an existing movie listing, the user will see the display as shown below. The movie's name is clearly identifiable, flanked by a total star rating and the count of ratings this movie has received. Users can modify the rating for each movie by selecting a star rating in the "Rate it" section.
+
+<img src="public/images/readme/ss6.png">
 
 ## Python Packages
 
