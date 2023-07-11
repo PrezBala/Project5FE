@@ -244,120 +244,66 @@ I've incorporated a footer into the site to acknowledge the creator and to indic
 
 <img src="public/images/readme/ss13.png">
 
-## Python Packages
+# The Surface Plane
 
-asgiref==3.6.0
-I use this for ASGI support, which helps me with asynchronous web applications.
+Design
 
-cloudinary==1.33.0
-I use this service to manage images in the cloud, simplifying media management.
+Colour-Scheme
 
-dj-database-url==2.0.0
-This tool allows me to utilize database URLs in my Django configuration for flexible deployment.
+The background colour for individual componenets is black (#000000) with a black wallpaper used.
 
-dj-static==0.0.6
-This is a static file server for Django, useful during app development and deployment.
+Movie listing colour used. (#800020)
 
-Django==3.2.13
-The main high-level web framework I use for rapid and clean application development.
+Main text is white (#ffffff) apart from the FlickRater logo (#FFA500)
 
-django-cloudinary-storage==0.3.0
-This helps me use Django storages with Cloudinary.
+# Technologies
 
-django-cors-headers==4.0.0
-I use this Django app to add Cross-Origin Resource Sharing (CORS) headers to responses.
+* React
 
-django-rest-authtoken==2.1.4
-A simple token-based authentication system I use for my Django REST framework.
+This is the primary framework utilized for crafting the user interface.
 
-djangorestframework==3.14.0
-I use this toolkit for building Web APIs in Django.
+* Node
 
-djangorestframework-simplejwt==5.2.2
-A minimal JSON Web Token authentication plugin for Django REST Framework.
+This is the package manager employed to install necessary dependencies.
 
-gunicorn==20.1.0
-My choice for a Python WSGI HTTP Server for UNIX with a pre-fork worker model.
+* Eslint
 
-Pillow==9.5.0
-A user-friendly fork of Python's PIL library I use for image processing.
+This is the linting tool leveraged to ensure coding practices are up to standard.
 
-psycopg2-binary==2.9.6
-The PostgreSQL database adapter for Python that I use.
+* Heroku
 
-PyJWT==2.7.0
-I use this for implementing JSON Web Tokens in Python.
+This platform is used to host the application.
 
-pytz==2023.3
-This Python library helps me with accurate timezone calculations.
+* Git
 
-sqlparse==0.4.4
-A non-validating SQL parser module I use in Python.
+This is the version control software utilized for managing code changes.
 
-static3==0.7.0
-A wrapper I use for Django’s static files serving.
+* Github
 
-urllib3==1.26.16
-The HTTP client I use in Python for making requests.
-
-whitenoise==6.4.0
-I use this to allow my web app to serve its own static files, making it self-contained and easy to deploy.
+This is the repository where the base code and documentation are stored.
 
 # Testing
 
-During the development process, I used the Postman application to test the API endpoints using GET, POST,PUT and DELETE functions with various URLs. Below are the results of the tests:
-
-I tested the GET function for the API to verify that movies and ratings are returned correctly. The screenshot below shows the response:
-
-<img src="https://github.com/PrezBala/Project5API/blob/main/readme/testone.png">
-
-I tested the POST function within the api/movies/ endpoint to confirm that adding a new movie title and description is successful. The following screenshot demonstrates the test:
-
-<img src="https://github.com/PrezBala/Project5API/blob/main/readme/testtwo.png">
-
-In the next screenshot, I attempted to add a new movie titled 'Avatar' with the description 'sci-fi':
-
-<img src="https://github.com/PrezBala/Project5API/blob/main/readme/testthree.png">
-
-After using the POST function, the successful response was returned, as shown in the screenshot below:
-
-<img src="https://github.com/PrezBala/Project5API/blob/main/readme/testfour.png">
-
-I also tested the PUT function under the api/movies/ endpoint to ensure that I can modify the movie description or title. In the screenshot below, I amended the description of 'Evil Dead' to 'Romantic':
-
-<img src="https://github.com/PrezBala/Project5API/blob/main/readme/testfive.png">
-
-To test the rating system, I attempted to set the value to 10 for the stars, even though the maximum allowed value is 5. The backend code correctly handles this situation, and the response informs that the value should be less than or equal to 5, as shown below:
-
-<img src="https://github.com/PrezBala/Project5API/blob/main/readme/testelevenparttwo.png">
-
-Response should return text to advise value should be less or equal to 5 which is what it is showing below.
-
-<img src="https://github.com/PrezBala/Project5API/blob/main/readme/testeleven.png">
-
-Additionally, I tested to ensure that only numerical input is allowed for the rating, and alphabetic characters are rejected. Using the POST function, I provided alphabetic letters, and the response correctly states that a valid integer is required:
-
-<img src="https://github.com/PrezBala/Project5API/blob/main/readme/testtwelve.png">
-
-The APIs were tested locally during the development phase. However, the comprehensive testing of the APIs was performed as part of the front-end repositories, where I tested them manually using form inputs and page loads. You can find the detailed results in the "FlickRater FE" repository.
+Testing can be found in the TESTING.md file
 
 ## Validator Results
 
-During the development process, I ran all the folders through Flake8, a code style checker, to ensure code quality. Flake8 identified several issues such as lines being too long, unnecessary blank spaces, incorrect indentation, and missing or incorrect docstring (example shown below)
-
-<img src="https://github.com/PrezBala/Project5API/blob/main/readme/testfifteen.png">
-
-I resolved all the identified issues, except for the lines that were too long in the migration files. These files are automatically generated by the framework, so I did not make any changes to them. Additionally, I also encountered lines that were too long in the authentication validator section of the settings.py file, which appeared to be unbreakable due to being framework code. Therefore, I couldn't fix those specific lines.
-
-One warning was raised about the env.py file being imported but unused. However, this file is utilized in the development version, so I disregarded this warning.
-
-By addressing the identified issues and resolving them, I ensured that the code complied with the established coding conventions and best practices.
-
-Several 'spacing' and 'line too long' errors were detected within the virtual environment (venv) libraries. After consultation with both student support and my mentor, it was confirmed that these errors can be disregarded, as they do not originate from the code I have written.
-
-<img src="https://github.com/PrezBala/Project5API/blob/main/readme/testseventeen.png">
 
 # Deployment
+
+## Heroku Deployment
+
+* I first navigated to Heroku and created an account.
+* Then, I clicked on the 'New' button, located at the top right corner.
+* From the drop-down options, I chose 'Create new app'.
+* I entered a unique name for my app.
+* I selected the desired region, and then clicked on 'Create app'.
+* I clicked on the 'Resources' tab and searched for 'Heroku Postgres'.
+* I selected the 'Hobby Dev' option and continued.
+* I navigated to the 'Deploy' tab.
+* I scrolled down to 'Connect to GitHub', signed in, and authorized when prompted.
+* I searched for the repository I wanted to deploy in the search box and clicked 'Connect'.
+* I scrolled down to 'Manual deploy', selected the 'main' branch, and then clicked 'Deploy'.
 
 ## Version Control
 
@@ -371,102 +317,59 @@ git push: Finally, this command was used to push all the committed code from the
 
 By utilizing these Git commands, the code changes made during development were properly staged, committed, and pushed to the remote repository, ensuring that the latest version of the code was available on the GitHub repository 'Project5API'.
 
-# Heroku Deployment
-
-To deploy the site to Heroku, I followed these steps:
-
-I navigated to the Heroku website (<https://www.heroku.com/>)
-
-Once logged in, I clicked the "New" button located in the top-right corner of the dashboard.
-
-I selected "Create new app" from the dropdown menu.
-
-I provided an app name of my choice.
-
-I chose the appropriate region and clicked the "Create app" button.
-
-In the dashboard for my app, I navigated to the "Resources" tab.
-
-I went to the "Settings" tab and clicked on "Reveal Config Vars".
-
-I added the following config vars:
-
-SECRET_KEY: My secret key
-DATABASE_URL: This was already present (automatically added when provisioning Heroku Postgres)
-CLOUDINARY_URL: Cloudinary URL (if applicable)
-DISABLE_COLLECTSTATIC: I set this to any non-empty value to disable automatic static file collection during deployment.
-I scrolled down to the "Connect to GitHub" section and clicked the "Connect" button. I signed in to my GitHub account and authorized the Heroku integration.
-
-In the search box, I found the repository I wanted to deploy and clicked the "Connect" button next to it.
-
-I scrolled down to the "Manual deploy" section and chose the desired branch, typically the "main" branch.
-
-Finally, I clicked the "Deploy" button to start the deployment process.
-
-Heroku then built and deployed my application. I could monitor the progress in the activity logs. Once the deployment was completed, I accessed my deployed site using the provided Heroku URL.
-
 ## Run Locally
 
-To clone the GitHub repository and use it locally, I followed these steps:
+To clone the GitHub repository I want to use locally, I followed these steps:
 
-I navigated to the GitHub repository I wanted to clone.
+* I went to the GitHub repository and clicked on the "Code" dropdown button.
 
-I clicked on the "Code" drop-down button.
+* From the options, I selected "HTTPS".
 
-From the options, I selected "HTTPS" to obtain the repository's HTTPS URL.
+* I copied the repository link to my clipboard.
 
-I copied the repository URL to my clipboard.
+* Opening my preferred IDE (with Git installed), I used the IDE terminal.
 
-Then, I opened my preferred IDE or code editor (making sure that Git was installed on my machine).
+* I typed git clone followed by the copied repository URL into the terminal.
 
-In the terminal or command prompt within my IDE, I typed git clone <copied-git-url>, replacing <copied-git-url> with the repository's URL. Pressing Enter executed the command.
+* Pressing Enter, the project was cloned on my local machine.
 
-As a result, the project was cloned from the GitHub repository and made available on my local machine.
+* Next, I needed to install the project's dependencies. Here's how I did it:
 
-To run the project, I followed these additional steps:
+* I opened the cloned project in my IDE.
 
-I created an env.py file in the project directory.
+* In the IDE terminal, I ran npm install command.
 
-Inside the env.py file, I added the necessary configuration variables mentioned in the earlier Heroku steps.
+* This command installed all the necessary dependencies for the project.
 
-Next, I configured the environment variables locally by referring to the appropriate instructions for my operating system. I followed a guide [here](https://able.bio/rhett/how-to-set-and-get-environment-variables-in-python--274rgt5#:~:text=To%20set%20and%20get%20environment%20variables%20in%20Python%20you%20can,Get%20environment%20variables%20USER%20%3D%20os.).
+* Finally, to run the application, I followed these steps:
 
-Finally, I set up a virtual environment using the following commands:
+* After the dependencies were installed, I ran npm start in the IDE terminal.
 
-For Windows:
+* This started the application.
 
-Copy code
-python -m venv venv
-venv\Scripts\activate
-pip install -r requirements.txt
-For Mac/Linux:
+* I accessed the application through the specified development server or the provided local URL.
+  By following these steps, I successfully cloned the GitHub repository, installed its dependencies, and ran the application locally on my machine.
 
-bash
+# Credits
 
-Copy code
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-By following these steps, I successfully cloned the GitHub repository to my local machine and set up the necessary environment to run the project.
+This article was instrumental in helping me implement the straightforward star rating component.
 
-# Credit
+* https://github.com/awran5/react-simple-star-rating
 
-I used several YouTube videos as valuable resources to understand and plan out my API backend. The following videos were particularly helpful:
+## Content
 
-freeCodeCamp.org - Building a REST API with Node.js, Express, and MongoDB
+Images i found on google image search for image roulette.
 
-[here](https://www.youtube.com/watch?v=WXsD0ZgxjRw).
+## Acknowledgements
 
-sudoCODE - Node.js REST API Tutorial
+I want to thank:
 
-[here](https://www.youtube.com/watch?v=aumDleTg_UQ&t=8s).
+* The Slack community. The help a student is able to receive from the other students is a really great tool to have.
 
-Tech With Tim - Django REST Framework Tutorial
+* My wife for testing my site for me.
 
-[here](https://www.youtube.com/watch?v=dam0GPOAvVI&t=16s).
+* Youtube - This platform has been incredibly useful and after watching countless videos i've learnt several different ways to code certain things i wouldnt have thought of before.
 
-In addition to these videos, I received excellent support from Studentsupport and Slack. Interacting with tutors, fellow students, and asking questions allowed me to overcome challenges and gain a better understanding of the concepts.
+* I'm grateful to the student support team for their exceptional assistance in resolving the deployment issue I experienced with migrating from Heroku to Codeanywhere.
 
-These resources provided valuable insights and guidance, contributing to the successful planning and implementation of my API backend.
-
-[Back to Table of Contents](https://github.com/PrezBala/Project5API#table-of-contents)
+[Back to Table of Contents](https://github.com/PrezBala/Project5fe#table-of-contents)
