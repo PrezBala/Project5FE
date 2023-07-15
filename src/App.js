@@ -77,7 +77,7 @@ function App() {
     return <h1>Wrong credentials, please refresh and try again</h1>;
   }
 
-  console.log(document.cookie); // Log all cookies
+  console.log(document.cookie);
 
   return (
     <div className="App">

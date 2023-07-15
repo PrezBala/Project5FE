@@ -15,7 +15,7 @@ function MovieDetails(props) {
   };
 
   const rateClicked = (rate) => () => {
-    fetch(`https://8000-prezbala-project5api-g8tw0q6j1r.us2.codeanyapp.com/api/movies/${mov.id}/rate_movie/`, {
+    fetch(`https://project-5-movierater.herokuapp.com/api/movies/${mov.id}/rate_movie/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -28,7 +28,7 @@ function MovieDetails(props) {
   };
 
   const getDetails = () => {
-    fetch(`https://8000-prezbala-project5api-g8tw0q6j1r.us2.codeanyapp.com/api/movies/${mov.id}/`, {
+    fetch(`https://project-5-movierater.herokuapp.com/api/movies/${mov.id}/`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
