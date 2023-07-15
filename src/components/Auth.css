@@ -6,42 +6,36 @@
     background-image: url("/public/images/cinema.jpeg");
     background-position: center;
     background-size: cover;
-  }
-  
-  .Auth-header {
+}
+.Auth-header {
     text-align: center;
     margin-top: 2rem;
-  }
-  
-  .Auth-header h1 {
+}
+.Auth-header h1 {
     font-size: 3.5rem;
     font-weight: bold;
     color: #722f37;
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
-  }
-  
-  .Auth-header p {
+}
+.Auth-header p {
     font-size: 1.2rem;
     color: #555;
     margin-top: 1rem;
-  }
-  
-  .login-container {
+}
+.login-container {
     width: 400px;
     background-color: #fff;
     border-radius: 8px;
     padding: 2rem;
     margin-top: 1rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .login-container label {
+}
+.login-container label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: bold;
-  }
-  
-  .login-container input {
+}
+.login-container input {
     width: 100%;
     padding: 0.5rem;
     font-size: 1rem;
@@ -49,9 +43,8 @@
     border-radius: 4px;
     margin-bottom: 1rem;
     color: #333;
-  }
-  
-  .login-container button {
+}
+.login-container button {
     width: 100%;
     padding: 0.75rem;
     background-color: #722f37;
@@ -61,60 +54,48 @@
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
-  }
-  
-  .login-container button:disabled {
+}
+.login-container button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
-  }
-  
-  .login-container p {
+}
+.login-container p {
     text-align: center;
     font-size: 0.9rem;
     cursor: pointer;
     color: #722f37;
     margin-top: 1rem;
-  }
-  
-  .login-container p:hover {
+}
+.login-container p:hover {
     text-decoration: underline;
-  }
-  
-  /* Phone (portrait) */
-  @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 2) {
+}
+/* Phone (portrait) */
+@media only screen and (min-width: 375px) and (max-width: 812px) {
     .login-container {
-      width: 80%;
-    }
-  
+        width: 80%;
+   }
     .Auth-header h1 {
-      font-size: 2.5rem;
-    }
-  
+        font-size: 2.5rem;
+   }
     .Auth-header p {
-      font-size: 1rem;
-    }
-  
+        font-size: 1rem;
+   }
     .login-container label {
-      font-size: 0.9rem;
-    }
-  
+        font-size: 0.9rem;
+   }
     .login-container input {
-      font-size: 0.9rem;
-    }
-  
+        font-size: 0.9rem;
+   }
     .login-container button {
-      font-size: 0.9rem;
-    }
-  
+        font-size: 0.9rem;
+   }
     .login-container p {
-      font-size: 0.8rem;
-    }
-  }
-  
-  /* Tablet */
-  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+        font-size: 0.8rem;
+   }
+}
+/* Tablet */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
     .login-container {
-      width: 400px;
-    }
-  }
-  
+        width: 400px;
+   }
+}

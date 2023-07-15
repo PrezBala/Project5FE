@@ -266,10 +266,9 @@ h1 .fa-film {
     transform: translateY(-50%);
     cursor: pointer;
   }
-  
 
 /* Phone (portrait) */
-@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (min-width: 375px) and (max-width: 812px) {
     .App {
       width: 97vw;
       padding: 10px;
@@ -291,11 +290,11 @@ h1 .fa-film {
     }
   
     .rate-container {
-      scale: 70%;
+      transform: scale(0.7);
     }
   
     .movie-header {
-      scale: 90%;
+      transform: scale(0.9);
     }
   
     .login-message {
@@ -304,7 +303,7 @@ h1 .fa-film {
   }
   
   /* Phone (landscape) */
-  @media only screen and (min-device-width: 812px) and (max-device-width: 375px) and (-webkit-min-device-pixel-ratio: 2) {
+  @media only screen and (min-width: 812px) and (max-width: 375px) {
     .App {
       width: 100vw;
       padding: 5px;
@@ -330,7 +329,7 @@ h1 .fa-film {
   }
   
   /* iPad */
-  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
     .App {
       width: 97vw;
       padding: 20px;
@@ -354,4 +353,3 @@ h1 .fa-film {
       font-size: 1rem; 
     }
   }
-  
