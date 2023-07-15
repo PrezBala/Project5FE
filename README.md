@@ -373,7 +373,6 @@ Additionally, an error was fixed where the link was not defined upon the first l
 * I entered a unique name for my app.
 * I selected the desired region, and then clicked on 'Create app'.
 * I clicked on the 'Resources' tab and searched for 'Heroku Postgres'.
-* I selected the 'Hobby Dev' option and continued.
 * I navigated to the 'Deploy' tab.
 * I scrolled down to 'Connect to GitHub', signed in, and authorized when prompted.
 * I searched for the repository I wanted to deploy in the search box and clicked 'Connect'.
