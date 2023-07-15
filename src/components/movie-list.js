@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { API } from '../api-service';
 import { useCookies } from 'react-cookie';
+import PropTypes from 'prop-types';
 
 function MovieList(props) {
   const [token] = useCookies(['mr-token']);
@@ -10,9 +11,9 @@ function MovieList(props) {
 
   useEffect(() => {
     console.log('User ID:', userId['mr-userid']);
-  }, [userId]);  // Add userId to the dependency array
+  }, [userId]); 
 
-  const movieClicked = movie => evt => {
+  const movieClicked = movie => () => {
     props.movieClicked(movie);
   };
 
@@ -45,5 +46,12 @@ function MovieList(props) {
     </div>
   );
 }
+
+MovieList.propTypes = {
+  movies: PropTypes.array,
+  movieClicked: PropTypes.func.isRequired,
+  editClicked: PropTypes.func.isRequired,
+  removeClicked: PropTypes.func.isRequired
+};
 
 export default MovieList;

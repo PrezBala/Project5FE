@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { useCookies } from 'react-cookie';
+import PropTypes from 'prop-types';
 
 function MovieDetails(props) {
   const [highlighted, setHighlighted] = useState(-1);
@@ -9,11 +10,11 @@ function MovieDetails(props) {
 
   const mov = props.movie;
 
-  const highlightRate = (high) => (evt) => {
+  const highlightRate = (high) => () => {
     setHighlighted(high);
   };
 
-  const rateClicked = (rate) => (evt) => {
+  const rateClicked = (rate) => () => {
     fetch(`https://8000-prezbala-project5api-g8tw0q6j1r.us2.codeanyapp.com/api/movies/${mov.id}/rate_movie/`, {
       method: 'POST',
       headers: {
@@ -77,5 +78,16 @@ function MovieDetails(props) {
     </React.Fragment>
   );
 }
+
+MovieDetails.propTypes = {
+  movie: PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string,
+    avg_rating: PropTypes.number,
+    no_of_ratings: PropTypes.number,
+    description: PropTypes.string,
+  }).isRequired,
+  updateMovie: PropTypes.func.isRequired,
+};
 
 export default MovieDetails;

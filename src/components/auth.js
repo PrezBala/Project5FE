@@ -8,8 +8,8 @@ function Auth() {
   const [password, setPassword] = useState('');
   const [isLoginView, setIsLoginView] = useState(true);
 
-  const [token, setToken, , setUserId] = useCookies(['mr-token', 'mr-userid']);  // Add 'mr-userid' here
-  const [isStaff, setIsStaff] = useCookies(['is-staff']);  // Keep this line as is
+  const [token, setToken, , setUserId] = useCookies(['mr-token', 'mr-userid']); 
+  const [isStaff, setIsStaff] = useCookies(['is-staff']); 
   
   useEffect(() => {
     if (token['mr-token']) window.location.href = '/movies';
@@ -18,18 +18,15 @@ function Auth() {
   const loginClicked = () => {
     API.loginUser({username, password})
         .then( resp => {
-            console.log('Server response:', resp);  // Log the full response
+            console.log('Server response:', resp); 
             setToken('mr-token', resp.token);
-            setIsStaff('is-staff', resp.is_staff);  // Set the 'is-staff' cookie
-            setUserId('mr-userid', resp.user_id); // Assume resp.user_id is the user id from server response.
-            console.log('Cookie is_staff:', isStaff['is-staff']);  // Log the 'is-staff' cookie value
-            console.log('Document cookie:', document.cookie);  // Log all cookies
+            setIsStaff('is-staff', resp.is_staff);  
+            setUserId('mr-userid', resp.user_id);
+            console.log('Cookie is_staff:', isStaff['is-staff']);
+            console.log('Document cookie:', document.cookie);
         })
         .catch( error => console.log(error))
   }
-
-  
-  
 
   const registerClicked = () => {
     API.registerUser({ username, password })
@@ -77,13 +74,14 @@ function Auth() {
 
         {isLoginView ? (
           <p onClick={() => setIsLoginView(false)}>
-            You don't have an account? Register here!
+            You don&apos;t have an account? Register here!
           </p>
         ) : (
           <p onClick={() => setIsLoginView(true)}>
             You already have an account? Login here
           </p>
         )}
+
       </div>
     </div>
   );

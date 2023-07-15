@@ -1,6 +1,7 @@
 import React, {useState, useEffect }from 'react';
 import { API } from '../api-service';
 import { useCookies } from 'react-cookie';
+import PropTypes from 'prop-types';
 
 function MovieForm(props) {
 
@@ -14,7 +15,6 @@ function MovieForm(props) {
       }, [props.movie])
 
     const updateClicked = () => {
-
         API.updateMovie(props.movie.id, {title, description},token['mr-token'])
         .then( resp => props.updatedMovie(resp))
         .catch( error => console.log(error))
@@ -27,7 +27,6 @@ function MovieForm(props) {
       }
 
     const isDisabled = title.length === 0 || description.length === 0;  
-
 
     return (
         <React.Fragment>
@@ -51,5 +50,15 @@ function MovieForm(props) {
         </React.Fragment>
     )
 }
+
+MovieForm.propTypes = {
+  movie: PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string,
+    description: PropTypes.string,
+  }),
+  updatedMovie: PropTypes.func.isRequired,
+  movieCreated: PropTypes.func.isRequired
+};
 
 export default MovieForm;
