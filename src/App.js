@@ -23,6 +23,7 @@ function App() {
   const [token, /* setToken */, deleteToken] = useCookies(['mr-token']);
   const [isStaff, /* setIsStaff */, deleteStaff] = useCookies(['is-staff']); 
   const [data, loading, error] = useFetch();
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   console.log('App isStaff:', isStaff['is-staff']);
 
@@ -31,7 +32,10 @@ function App() {
   }, [data])
 
   useEffect( () => {
-    if(!token['mr-token']) window.location.href = '/';
+    if(!token['mr-token']) {
+      setIsLoggedIn(false);
+      window.location.href = '/';
+    }
   }, [token])
 
   const loadMovie = movie => {
@@ -68,13 +72,17 @@ function App() {
   const logoutUser = () => {
     deleteToken(['mr-token']);
     deleteStaff(['is-staff']);
+    setIsLoggedIn(false);
   };
 
   if (loading) return <div className="full-screen-message"><h1>Loading...</h1></div>;
   if (error) return <div className="full-screen-message"><h1>Error loading movies</h1></div>;
-  if (movies['detail'] === 'Invalid token.') {
+  if (movies['detail'] === 'Invalid token.' && isLoggedIn) {
     logoutUser();
     return <h1>Wrong credentials, please refresh and try again</h1>;
+  }
+  if (!isLoggedIn) {
+    return <h1>Logging out...</h1>
   }
 
   console.log(document.cookie);
@@ -106,11 +114,11 @@ function App() {
           </div>
           <div>
             <img src={Movie2} alt="Movie 2" className="carousel-image" />
-            <p className="legend">Harry Potter and the philosphers stone</p>
+            <p className="legend">Harry Potter and the Philosopher&apos;s Stone</p>
           </div>
           <div>
             <img src={Movie3} alt="Movie 3" className="carousel-image" />
-            <p className="legend">I.T Chapter 2</p>
+            <p className="legend">IT Chapter 2</p>
           </div>
         </Carousel>
       </div>
