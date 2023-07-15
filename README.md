@@ -284,10 +284,75 @@ This is the repository where the base code and documentation are stored.
 
 # Testing
 
-Testing can be found in the TESTING.md file
+## User Story Testing
+
+__Movie Listing__
+
+<img src="public/images/readme/ex1.png">
+
+__New Movie__
+
+<img src="public/images/readme/ex2.png">
+
+__Edit and Delete Description / Title__
+
+<img src="public/images/readme/ex3.png">
+
+__Admin Section__
+
+<img src="public/images/readme/ex4.png">
+
+__Authorisation__
+
+<img src="public/images/readme/ex5.png">
+
+## Lighthouse Testing
+
+Lighthouse testing was successfully carried out, and the results were satisfactory. Potential areas of improvement were identified, such as image compression prior to uploading, which could enhance the score. However, due to time constraints, this functionality was not implemented in the current iteration but may be considered for future enhancements.
+
+<img src="public/images/readme/ex5.png">
+
+## Responsiveness
+
+Each page was tested to guarantee a responsive design across various screen sizes, starting from 320px and upwards.
+
+Here's the testing procedure:
+
+* Launch the browser and navigate to FlickRater.
+* Activate the developer tools (Right-click, then select Inspect).
+* Switch to responsive mode and decrease the width to 320px.
+* Adjust the zoom level to 50%.
+* Expand the responsive window to its maximum width by clicking and dragging.
+
+The anticipated outcome:
+
+The website should exhibit responsiveness across all screen sizes without pixelation or distortion of images. There should be no horizontal scrolling, and no elements should overlap.
+
+Outcome:
+
+The website performed as expected, maintaining its responsive nature.
+
+Additionally, the website was examined on a variety of devices and demonstrated no issues related to responsive design.
+
+## Eslint
+
+Eslint was successfully set up and configured for local usage. Upon execution, a single warning emerged regarding an unspecified React version, but no errors were reported.
 
 ## Validator Results
 
+Each CSS file was systematically validated to ensure its integrity. During the validation process, a single error was detected, specifically an unknown declaration, which was promptly rectified.
+
+<img src="public/images/readme/csserrors.png">
+
+## Bugs and their fixes
+
+The issue with the rating counter not updating correctly unless the page was manually refreshed was resolved by including the updatedMovie(movie) function call within the loadMovie function in App.js.
+
+A bug was identified where a standard user was able to view the admin section button. To rectify this, a check for isStaff === true was implemented in App.js.
+
+When a user selected to log out the message "Wrong credentials, please refresh and try again" message appeared, an if statement was added in App.js to handle the "Logging out..." message instead.
+
+Additionally, an error was fixed where the link was not defined upon the first login. This was resolved by including the import statement import { Route, Routes } from 'react-router-dom'; within App.js.
 
 # Deployment
 
@@ -348,7 +413,8 @@ To clone the GitHub repository I want to use locally, I followed these steps:
 * This started the application.
 
 * I accessed the application through the specified development server or the provided local URL.
-  By following these steps, I successfully cloned the GitHub repository, installed its dependencies, and ran the application locally on my machine.
+
+By following these steps, I successfully cloned the GitHub repository, installed its dependencies, and ran the application locally on my machine.
 
 # Credits
 

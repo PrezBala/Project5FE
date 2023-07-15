@@ -16,7 +16,7 @@ function AdminPanel() {
   useEffect(() => {
     API.getUser(userId['mr-userid'], token['mr-token'])
       .then(response => {
-        setIsAdmin(response.is_staff);  // assuming the staff status is in 'is_staff' field
+        setIsAdmin(response.is_staff);
       })
       .catch(error => console.log(error));
 
@@ -44,7 +44,7 @@ function AdminPanel() {
   }
 
   if (!isAdmin) {
-    navigate('/');  // Redirect to home page if user is not admin
+    navigate('/');
     return null;
   }
 
