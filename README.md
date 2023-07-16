@@ -22,6 +22,7 @@ Flickrater aims to provide an interactive and engaging platform where movie enth
   - [Movie Rating](#movie-rating)
   - [Profiles](#profiles)
 - [User Stories](#user-stories)
+- [Reuse of Components](#reuse-of-components)
 - [Wireframe](#wireframe)
   - [Wireframe Mobile](#wireframe-mobile)
 - [The Structure Plane](#the-structure-plane)
@@ -110,6 +111,14 @@ Setup
 As a prospective user, I am presented with clear sign-in and registration options, allowing for a streamlined and intuitive access process.
 
 As a user, I require a fully responsive navigation menu for effortless site navigation regardless of the device I am using.
+
+# Reuse of Components
+
+* In the Auth.js component, I have designed a generic login/register form that toggles between login and register view based on the isLoginView state. This logic encapsulates both operations in a single component, enabling me to reuse this component wherever a login or register feature is needed without duplicating code.
+
+* The App.js file includes several examples of reusable components: MovieList, MovieDetails, and MovieForm are used to display various pieces of information about movies. These components are reused to display information about different sets of movies without modifying the components themselves.
+
+* useCookies hook: This custom hook is utilized in multiple places: Auth.js, App.js, and AdminPanel.js. This hook aids in managing cookies throughout the application, which is a crucial aspect of maintaining and checking user sessions. This is a form of logic reusability.
 
 # Wireframe
 
