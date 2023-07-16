@@ -319,7 +319,7 @@ __Authorisation__
 
 Lighthouse testing was successfully carried out, and the results were satisfactory. Potential areas of improvement were identified, such as image compression prior to uploading, which could enhance the score. However, due to time constraints, this functionality was not implemented in the current iteration but may be considered for future enhancements.
 
-<img src="public/images/readme/ex5.png">
+<img src="public/images/readme/lighthouse.png">
 
 ## Responsiveness
 
