@@ -6,6 +6,8 @@ Each movie listed on Flickrater is accompanied by a concise description, providi
 
 Flickrater aims to provide an interactive and engaging platform where movie enthusiasts can connect, discover new films, and share their thoughts through ratings.
 
+The website has been deployed to Heroku and can be accessed at the following URL: https://project-5-movierater-fe-80b23e401183.herokuapp.com/movies.
+
 <img src="public/images/readme/sshome.png">
 
 # Table of contents
@@ -453,6 +455,6 @@ I want to thank:
 
 * Youtube - This platform has been incredibly useful and after watching countless videos i've learnt several different ways to code certain things i wouldnt have thought of before.
 
-* I'm grateful to the student support team for their exceptional assistance in resolving the deployment issue I experienced with migrating from Heroku to Codeanywhere.
+* I'm grateful to the student support team for their exceptional assistance in resolving the deployment issue I experienced with migrating from GitPod to Codeanywhere.
 
 [Back to Table of Contents](https://github.com/PrezBala/Project5fe#table-of-contents)
