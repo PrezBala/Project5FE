@@ -36,7 +36,7 @@ function Auth() {
   return (
     <div className="Auth">
       <header className="Auth-header">
-        {isLoginView ? <h1>FlickRater - Login</h1> : <h1>FlickRater - Register</h1>}
+        {isLoginView ? <h1>FlickRater Login</h1> : <h1>FlickRater Register</h1>}
       </header>
       <div className="login-container">
         <label htmlFor="username">Username</label>
