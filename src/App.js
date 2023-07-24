@@ -23,28 +23,20 @@ function App() {
   const [token, /* setToken */, deleteToken] = useCookies(['mr-token']);
   const [isStaff, /* setIsStaff */, deleteStaff] = useCookies(['is-staff']); 
   const [data, loading, error] = useFetch();
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const [invalidToken, setInvalidToken] = useState(false); 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     setMovies(data);
   }, [data]);
 
   useEffect(() => {
-    if (!token['mr-token']) {
-      setIsLoggedIn(false);
-      if (invalidToken) {
-        window.location.href = '/';
-      }
+    if (token['mr-token']) {
+      setIsLoggedIn(true); 
+    } else {
+      setIsLoggedIn(false); 
+      window.location.href = '/';
     }
-  }, [token, invalidToken]);
-
-  useEffect(() => {
-
-    if (movies['detail'] === 'Invalid token.' && isLoggedIn) {
-      setInvalidToken(true);
-    }
-  }, [movies, isLoggedIn]);
+  }, [token]);
 
   const loadMovie = movie => {
     setSelectedMovie(movie);
@@ -85,11 +77,13 @@ function App() {
 
   if (loading) return <div className="full-screen-message"><h1>Loading...</h1></div>;
   if (error) return <div className="full-screen-message"><h1>Error loading movies</h1></div>;
-  if (invalidToken && isLoggedIn) {
+  if (movies['detail'] === 'Invalid token.' && isLoggedIn) {
+    window.location.href = '/'; 
     return <h1>Wrong credentials, please refresh and try again</h1>;
   }
   if (!isLoggedIn) {
-    return <h1>Logging out...</h1>
+    window.location.href = '/'; 
+    return <h1>Logging out...</h1>;
   }
 
   return (
