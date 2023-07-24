@@ -75,7 +75,7 @@ function App() {
 
   if (loading) return <div className="full-screen-message"><h1>Loading...</h1></div>;
   if (error) return <div className="full-screen-message"><h1>Error loading movies</h1></div>;
-  if (!token['mr-token'] && isLoggedIn) {
+  if (movies['detail'] === 'Invalid token.' && isLoggedIn) {
     logoutUser();
     return <h1>Wrong credentials, please refresh and try again</h1>;
   }
