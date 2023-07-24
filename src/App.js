@@ -25,8 +25,6 @@ function App() {
   const [data, loading, error] = useFetch();
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
-  console.log('App isStaff:', isStaff['is-staff']);
-
   useEffect(()=>{
     setMovies(data);
   }, [data])
@@ -77,15 +75,13 @@ function App() {
 
   if (loading) return <div className="full-screen-message"><h1>Loading...</h1></div>;
   if (error) return <div className="full-screen-message"><h1>Error loading movies</h1></div>;
-  if (movies['detail'] === 'Invalid token.' && isLoggedIn) {
+  if (!token['mr-token'] && isLoggedIn) {
     logoutUser();
     return <h1>Wrong credentials, please refresh and try again</h1>;
   }
   if (!isLoggedIn) {
     return <h1>Logging out...</h1>
   }
-
-  console.log(document.cookie);
 
   return (
     <div className="App">

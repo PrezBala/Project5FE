@@ -42,6 +42,7 @@ function Auth() {
         {isLoginView ? <h1>FlickRater Login</h1> : <h1>FlickRater Register</h1>}
       </header>
       <div className="login-container">
+        {isLoginView && <h2>Login</h2>}
         <label htmlFor="username">Username</label>
         <br />
         <input

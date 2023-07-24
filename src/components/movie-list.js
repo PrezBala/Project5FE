@@ -10,7 +10,6 @@ function MovieList(props) {
   const [userId] = useCookies(['mr-userid']);
 
   useEffect(() => {
-    console.log('User ID:', userId['mr-userid']);
   }, [userId]); 
 
   const movieClicked = movie => () => {
