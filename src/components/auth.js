@@ -9,7 +9,7 @@ function Auth() {
   const [isLoginView, setIsLoginView] = useState(true);
 
   const [token, setToken, , setUserId] = useCookies(['mr-token', 'mr-userid']); 
-  const [setIsStaff] = useCookies(['is-staff']); 
+  const [isStaff, setIsStaff] = useCookies(['is-staff']); 
   
   useEffect(() => {
     if (token['mr-token']) window.location.href = '/movies';
@@ -21,6 +21,7 @@ function Auth() {
             setToken('mr-token', resp.token);
             setIsStaff('is-staff', resp.is_staff);  
             setUserId('mr-userid', resp.user_id);
+            console.log('Cookie is_staff:', isStaff['is-staff']);
         })
         .catch( error => console.log(error))
   }
