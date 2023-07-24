@@ -18,12 +18,9 @@ function Auth() {
   const loginClicked = () => {
     API.loginUser({username, password})
         .then( resp => {
-            console.log('Server response:', resp); 
             setToken('mr-token', resp.token);
             setIsStaff('is-staff', resp.is_staff);  
             setUserId('mr-userid', resp.user_id);
-            console.log('Cookie is_staff:', isStaff['is-staff']);
-            console.log('Document cookie:', document.cookie);
         })
         .catch( error => console.log(error))
   }
@@ -39,24 +36,19 @@ function Auth() {
   return (
     <div className="Auth">
       <header className="Auth-header">
-        {isLoginView ? <h1>FlickRater</h1> : <h1>FlickRater</h1>}
+        {isLoginView ? <h1>FlickRater - Login</h1> : <h1>FlickRater - Register</h1>}
       </header>
       <div className="login-container">
-        {isLoginView ? <h2>Login</h2> : <h2>Register</h2>}
-        {isLoginView ? null : (
-          <>
-            <label htmlFor="username">Username</label>
-            <br />
-            <input
-              id="username"
-              type="text"
-              placeholder="username"
-              value={username}
-              onChange={(evt) => setUsername(evt.target.value)}
-            />
-            <br />
-          </>
-        )}
+        <label htmlFor="username">Username</label>
+        <br />
+        <input
+          id="username"
+          type="text"
+          placeholder="username"
+          value={username}
+          onChange={(evt) => setUsername(evt.target.value)}
+        />
+        <br />
         <label htmlFor="password">Password</label>
         <br />
         <input
@@ -79,17 +71,17 @@ function Auth() {
 
         {isLoginView ? (
           <p onClick={() => setIsLoginView(false)}>
-            You don't have an account? Register here!
+            You don&apos;t have an account? Register here!
           </p>
         ) : (
           <p onClick={() => setIsLoginView(true)}>
             You already have an account? Login here
           </p>
         )}
+
       </div>
     </div>
   );
-};
-
+}
 
 export default Auth;
