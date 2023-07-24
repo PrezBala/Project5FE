@@ -21,13 +21,9 @@ function App() {
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [editedMovie, setEditedMovie] = useState(null);
   const [token, /* setToken */, deleteToken] = useCookies(['mr-token']);
-  const [isStaff, /* setIsStaff */, deleteStaff] = useCookies(['is-staff']); 
+  const [isStaff, /* setIsStaff */, deleteStaff] = useCookies(['is-staff']);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); 
   const [data, loading, error] = useFetch();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    setMovies(data);
-  }, [data]);
 
   useEffect(() => {
     if (token['mr-token']) {
@@ -37,6 +33,12 @@ function App() {
       window.location.href = '/';
     }
   }, [token]);
+
+  useEffect(() => {
+    if (!loading && !error) {
+      setMovies(data);
+    }
+  }, [data, loading, error]);
 
   const loadMovie = movie => {
     setSelectedMovie(movie);
