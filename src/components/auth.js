@@ -9,7 +9,7 @@ function Auth() {
   const [isLoginView, setIsLoginView] = useState(true);
 
   const [token, setToken, , setUserId] = useCookies(['mr-token', 'mr-userid']); 
-  const [isStaff, setIsStaff] = useCookies(['is-staff']); 
+  const [setIsStaff] = useCookies(['is-staff']); 
   
   useEffect(() => {
     if (token['mr-token']) window.location.href = '/movies';
