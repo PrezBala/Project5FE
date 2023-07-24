@@ -7,7 +7,6 @@ import AdminPanel from './components/adminpanel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilm, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { useCookies } from 'react-cookie';
-import { useFetch } from './hooks/useFetch';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Route, Routes } from 'react-router-dom';
@@ -23,22 +22,35 @@ function App() {
   const [token, /* setToken */, deleteToken] = useCookies(['mr-token']);
   const [isStaff, /* setIsStaff */, deleteStaff] = useCookies(['is-staff']);
   const [isLoggedIn, setIsLoggedIn] = useState(false); 
-  const [data, loading, error] = useFetch();
 
   useEffect(() => {
-    if (token['mr-token']) {
-      setIsLoggedIn(true); 
-    } else {
-      setIsLoggedIn(false); 
-      window.location.href = '/';
-    }
+    const fetchData = async () => {
+      try {
+        if (token['mr-token']) {
+          const response = await fetch('/api/movies/', {
+            headers: {
+              Authorization: `Token ${token['mr-token']}`,
+            },
+          });
+          if (!response.ok) {
+            throw new Error('Invalid token.');
+          }
+          const data = await response.json();
+          setMovies(data);
+          setIsLoggedIn(true); 
+        } else {
+          setIsLoggedIn(false); 
+          window.location.href = '/'; 
+        }
+      } catch (error) {
+        console.error('Error loading movies:', error);
+        setMovies([]);
+        setIsLoggedIn(false); 
+      }
+    };
+
+    fetchData();
   }, [token]);
-
-  useEffect(() => {
-    if (!loading && !error) {
-      setMovies(data);
-    }
-  }, [data, loading, error]);
 
   const loadMovie = movie => {
     setSelectedMovie(movie);
@@ -77,14 +89,7 @@ function App() {
     setIsLoggedIn(false);
   };
 
-  if (loading) return <div className="full-screen-message"><h1>Loading...</h1></div>;
-  if (error) return <div className="full-screen-message"><h1>Error loading movies</h1></div>;
-  if (movies['detail'] === 'Invalid token.' && isLoggedIn) {
-    window.location.href = '/'; 
-    return <h1>Wrong credentials, please refresh and try again</h1>;
-  }
   if (!isLoggedIn) {
-    window.location.href = '/'; 
     return <h1>Logging out...</h1>;
   }
 
