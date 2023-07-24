@@ -36,48 +36,53 @@ function Auth() {
   return (
     <div className="Auth">
       <header className="Auth-header">
-        {isLoginView ? <h1>FlickRater Login</h1> : <h1>FlickRater Register</h1>}
+        <h1>FlickRater</h1>
       </header>
       <div className="login-container">
-        <label htmlFor="username">Username</label>
-        <br />
-        <input
-          id="username"
-          type="text"
-          placeholder="username"
-          value={username}
-          onChange={(evt) => setUsername(evt.target.value)}
-        />
-        <br />
-        <label htmlFor="password">Password</label>
-        <br />
-        <input
-          id="password"
-          type="password"
-          placeholder="Description"
-          value={password}
-          onChange={(evt) => setPassword(evt.target.value)}
-        />
-        <br />
-        {isLoginView ? (
-          <button onClick={loginClicked} disabled={isDisabled}>
-            Login
-          </button>
-        ) : (
-          <button onClick={registerClicked} disabled={isDisabled}>
-            Register
-          </button>
-        )}
+        <div className="input-container">
+          <label htmlFor="username">Username</label>
+          <input
+            id="username"
+            type="text"
+            placeholder="username"
+            value={username}
+            onChange={(evt) => setUsername(evt.target.value)}
+          />
+        </div>
+        <div className="input-container">
+          <label htmlFor="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            placeholder="Description"
+            value={password}
+            onChange={(evt) => setPassword(evt.target.value)}
+          />
+        </div>
 
-        {isLoginView ? (
-          <p onClick={() => setIsLoginView(false)}>
-            You don&apos;t have an account? Register here!
-          </p>
-        ) : (
-          <p onClick={() => setIsLoginView(true)}>
-            You already have an account? Login here
-          </p>
-        )}
+        <div className="input-container">
+          {isLoginView ? (
+            <button onClick={loginClicked} disabled={isDisabled}>
+              Login
+            </button>
+          ) : (
+            <button onClick={registerClicked} disabled={isDisabled}>
+              Register
+            </button>
+          )}
+        </div>
+
+        <div className="input-container">
+          {isLoginView ? (
+            <p onClick={() => setIsLoginView(false)}>
+              You don&apos;t have an account? Register here!
+            </p>
+          ) : (
+            <p onClick={() => setIsLoginView(true)}>
+              You already have an account? Login here
+            </p>
+          )}
+        </div>
 
       </div>
     </div>
