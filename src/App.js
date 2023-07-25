@@ -25,8 +25,6 @@ function App() {
   const [data, loading, error] = useFetch();
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
-  console.log('App isStaff:', isStaff['is-staff']);
-
   useEffect(()=>{
     setMovies(data);
   }, [data])
@@ -82,10 +80,8 @@ function App() {
     return <h1>Wrong credentials, please refresh and try again</h1>;
   }
   if (!isLoggedIn) {
-    return <h1>Logging out...</h1>
+    return <h1>Wrong credentials, please refresh and try again</h1>
   }
-
-  console.log(document.cookie);
 
   return (
     <div className="App">
