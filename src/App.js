@@ -24,21 +24,17 @@ function App() {
   const [isStaff, /* setIsStaff */, deleteStaff] = useCookies(['is-staff']); 
   const [data, loading, error] = useFetch();
   const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const [loginAttempted, setLoginAttempted] = useState(false);
-  const [loginSuccessful, setLoginSuccessful] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(null); 
+
+  console.log('App isStaff:', isStaff['is-staff']);
 
   useEffect(()=>{
-    setMovies(Array.isArray(data) ? data : []); 
+    setMovies(data);
   }, [data])
 
   useEffect( () => {
     if(!token['mr-token']) {
       setIsLoggedIn(false);
-      setLoginAttempted(true);
       window.location.href = '/';
-    } else {
-      setLoginSuccessful(true);
     }
   }, [token])
 
@@ -83,15 +79,13 @@ function App() {
   if (error) return <div className="full-screen-message"><h1>Error loading movies</h1></div>;
   if (movies['detail'] === 'Invalid token.' && isLoggedIn) {
     logoutUser();
-    setErrorMessage('Wrong credentials, please refresh and try again');
-  }
-  if (loginAttempted && !loginSuccessful) {
     return <h1>Wrong credentials, please refresh and try again</h1>;
   }
-
-  if (errorMessage) {
-    return <h1>{errorMessage}</h1>;
+  if (!isLoggedIn) {
+    return <h1>Logging out...</h1>
   }
+
+  console.log(document.cookie);
 
   return (
     <div className="App">
