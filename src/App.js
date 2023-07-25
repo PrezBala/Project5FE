@@ -36,8 +36,8 @@ function App() {
     if(!token['mr-token']) {
       setIsLoggedIn(false);
       setLoginAttempted(true);
-      window.location.href = '/';
     } else {
+      setIsLoggedIn(true);
       setLoginSuccessful(true);
     }
   }, [token])
@@ -74,10 +74,13 @@ function App() {
   };
 
   const logoutUser = () => {
-    deleteToken(['mr-token']);
-    deleteStaff(['is-staff']);
-    setIsLoggedIn(false);
     setIsLoggingOut(true);
+    setTimeout(() => {
+      deleteToken(['mr-token']);
+      deleteStaff(['is-staff']);
+      setIsLoggedIn(false);
+      setIsLoggingOut(false);
+    }, 2000);
   };
 
   if (loading) return <div className="full-screen-message"><h1>Loading...</h1></div>;
