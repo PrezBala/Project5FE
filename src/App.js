@@ -26,9 +26,10 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [loginAttempted, setLoginAttempted] = useState(false);
   const [loginSuccessful, setLoginSuccessful] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null); 
 
   useEffect(()=>{
-    setMovies(data);
+    setMovies(Array.isArray(data) ? data : []); 
   }, [data])
 
   useEffect( () => {
@@ -82,10 +83,14 @@ function App() {
   if (error) return <div className="full-screen-message"><h1>Error loading movies</h1></div>;
   if (movies['detail'] === 'Invalid token.' && isLoggedIn) {
     logoutUser();
-    return <h1>Wrong credentials, please refresh and try again</h1>;
+    setErrorMessage('Wrong credentials, please refresh and try again');
   }
   if (loginAttempted && !loginSuccessful) {
     return <h1>Wrong credentials, please refresh and try again</h1>;
+  }
+
+  if (errorMessage) {
+    return <h1>{errorMessage}</h1>;
   }
 
   return (
