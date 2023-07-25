@@ -24,6 +24,9 @@ function App() {
   const [isStaff, /* setIsStaff */, deleteStaff] = useCookies(['is-staff']); 
   const [data, loading, error] = useFetch();
   const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
+  const [loginAttempted, setLoginAttempted] = useState(false);
+  const [loginSuccessful, setLoginSuccessful] = useState(false);
 
   useEffect(()=>{
     setMovies(data);
@@ -32,7 +35,10 @@ function App() {
   useEffect( () => {
     if(!token['mr-token']) {
       setIsLoggedIn(false);
+      setLoginAttempted(true);
       window.location.href = '/';
+    } else {
+      setLoginSuccessful(true);
     }
   }, [token])
 
@@ -71,6 +77,7 @@ function App() {
     deleteToken(['mr-token']);
     deleteStaff(['is-staff']);
     setIsLoggedIn(false);
+    setIsLoggingOut(true);
   };
 
   if (loading) return <div className="full-screen-message"><h1>Loading...</h1></div>;
@@ -79,8 +86,11 @@ function App() {
     logoutUser();
     return <h1>Wrong credentials, please refresh and try again</h1>;
   }
-  if (!isLoggedIn) {
+  if (isLoggingOut) {
     return <h1>Logging out...</h1>
+  }
+  if (loginAttempted && !loginSuccessful) {
+    return <h1>Wrong credentials, please refresh and try again</h1>;
   }
 
   return (
