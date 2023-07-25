@@ -43,6 +43,7 @@ The website has been deployed to Heroku and can be accessed at the following URL
   - [Run Locally](#run-locally)
 - [Credits](#credits)
   - [Content](#content)
+- [Frontend Libraries](#frontend-libraries)
   - [Acknowledgements](#acknowledgements)
 
 # The Strategy Plane
@@ -444,6 +445,34 @@ This article was instrumental in helping me implement the straightforward star r
 ## Content
 
 Images i found on google image search for image roulette.
+
+# Frontend Libraries
+
+I've utilized various frontend libraries to enhance the functionality and user experience of my React application. 
+
+Font Awesome icons play a significant role in visually enriching the design, and I've integrated them using "@fortawesome/fontawesome-svg-core" and "@fortawesome/react-fontawesome."
+
+To handle HTTP requests from the browser, I've incorporated "axios," a widely-used library known for its simplicity and effectiveness in handling API calls.
+
+For proper React prop validation, I've opted for "prop-types," which helps ensure the correctness and consistency of data passed between components.
+
+The core building block of my project is "react." With this library, I've created dynamic and interactive user interfaces that offer a smooth and engaging experience.
+
+To manage cookies efficiently in my application, I've integrated "react-cookie," simplifying the process of working with browser cookies.
+
+To work with the DOM and render React components, I've employed "react-dom," an essential package that allows seamless integration between React and the browser's DOM.
+
+For optimizing the management of the document's head and handling metadata in my React app, "react-helmet" has proven to be an indispensable tool.
+
+To create visually appealing and responsive carousels, I've made use of "react-responsive-carousel," which facilitates the creation of dynamic and mobile-friendly image sliders.
+
+For handling routing within my application, I've turned to "react-router-dom." This powerful library enables smooth navigation and handling of different views in my React app.
+
+The "react-scripts" package provides the necessary configuration and scripts required by Create React App, making the development process much more streamlined.
+
+Lastly, I've implemented "web-vitals" to measure key performance metrics of my web application, ensuring it runs efficiently and delivers an optimal user experience.
+
+In summary, the combination of these frontend libraries has allowed me to build a feature-rich and well-tested React application that offers a seamless user experience.
 
 ## Acknowledgements
 
