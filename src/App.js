@@ -5,7 +5,7 @@ import MovieDetails from './components/movie-details';
 import MovieForm from './components/movie-form';
 import AdminPanel from './components/adminpanel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFilm } from '@fortawesome/free-solid-svg-icons';
+import { faFilm, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { useCookies } from 'react-cookie';
 import { useFetch } from './hooks/useFetch';
 import { Carousel } from 'react-responsive-carousel';
@@ -72,12 +72,16 @@ function App() {
     setMovies(newMovies);
   };
 
-  if (loading) return <div className="full-screen-message"><h1>Loading...</h1></div>;
-  if (error) return <div className="full-screen-message"><h1>Error loading movies</h1></div>;
-  if (movies['detail'] === 'Invalid token.' && isLoggedIn) {
+  const logoutUser = () => {
     deleteToken(['mr-token']);
     deleteStaff(['is-staff']);
     setIsLoggedIn(false);
+  };
+
+  if (loading) return <div className="full-screen-message"><h1>Loading...</h1></div>;
+  if (error) return <div className="full-screen-message"><h1>Error loading movies</h1></div>;
+  if (movies['detail'] === 'Invalid token.' && isLoggedIn) {
+    logoutUser();
     return <h1>Wrong credentials, please refresh and try again</h1>;
   }
   if (loginAttempted && !loginSuccessful) {
@@ -91,6 +95,10 @@ function App() {
           <FontAwesomeIcon icon={faFilm} />
           <span>FlickRater</span>
         </h1>
+        <div onClick={logoutUser} className="logout-button">
+          <FontAwesomeIcon icon={faSignOutAlt} />
+          <span>Log out</span>
+        </div>
         {isStaff['is-staff'] === 'true' ? (
           <div className="admin-section" onClick={() => window.location.href = '/admin'}>
             <span>Admin Section</span>
