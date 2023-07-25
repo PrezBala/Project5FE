@@ -5,7 +5,7 @@ import MovieDetails from './components/movie-details';
 import MovieForm from './components/movie-form';
 import AdminPanel from './components/adminpanel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFilm, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faFilm } from '@fortawesome/free-solid-svg-icons';
 import { useCookies } from 'react-cookie';
 import { useFetch } from './hooks/useFetch';
 import { Carousel } from 'react-responsive-carousel';
@@ -24,7 +24,6 @@ function App() {
   const [isStaff, /* setIsStaff */, deleteStaff] = useCookies(['is-staff']); 
   const [data, loading, error] = useFetch();
   const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const [isLoggingOut, setIsLoggingOut] = useState(false);
   const [loginAttempted, setLoginAttempted] = useState(false);
   const [loginSuccessful, setLoginSuccessful] = useState(false);
 
@@ -36,8 +35,8 @@ function App() {
     if(!token['mr-token']) {
       setIsLoggedIn(false);
       setLoginAttempted(true);
+      window.location.href = '/';
     } else {
-      setIsLoggedIn(true);
       setLoginSuccessful(true);
     }
   }, [token])
@@ -73,24 +72,13 @@ function App() {
     setMovies(newMovies);
   };
 
-  const logoutUser = () => {
-    setIsLoggingOut(true);
-    setTimeout(() => {
-      deleteToken(['mr-token']);
-      deleteStaff(['is-staff']);
-      setIsLoggedIn(false);
-      setIsLoggingOut(false);
-    }, 2000);
-  };
-
   if (loading) return <div className="full-screen-message"><h1>Loading...</h1></div>;
   if (error) return <div className="full-screen-message"><h1>Error loading movies</h1></div>;
   if (movies['detail'] === 'Invalid token.' && isLoggedIn) {
-    logoutUser();
+    deleteToken(['mr-token']);
+    deleteStaff(['is-staff']);
+    setIsLoggedIn(false);
     return <h1>Wrong credentials, please refresh and try again</h1>;
-  }
-  if (isLoggingOut) {
-    return <h1>Logging out...</h1>
   }
   if (loginAttempted && !loginSuccessful) {
     return <h1>Wrong credentials, please refresh and try again</h1>;
@@ -103,10 +91,6 @@ function App() {
           <FontAwesomeIcon icon={faFilm} />
           <span>FlickRater</span>
         </h1>
-        <div onClick={logoutUser} className="logout-button">
-          <FontAwesomeIcon icon={faSignOutAlt} />
-          <span>Log out</span>
-        </div>
         {isStaff['is-staff'] === 'true' ? (
           <div className="admin-section" onClick={() => window.location.href = '/admin'}>
             <span>Admin Section</span>
