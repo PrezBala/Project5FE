@@ -26,6 +26,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [isLoggingOut, setIsLoggingOut] = useState(false);
   const [loginAttempted, setLoginAttempted] = useState(false);
+  const [loginSuccessful, setLoginSuccessful] = useState(false);
 
   useEffect(()=>{
     setMovies(data);
@@ -35,9 +36,9 @@ function App() {
     if(!token['mr-token']) {
       setIsLoggedIn(false);
       setLoginAttempted(true);
+      window.location.href = '/';
     } else {
-      setIsLoggedIn(true);
-      setLoginAttempted(false);
+      setLoginSuccessful(true);
     }
   }, [token])
 
@@ -82,14 +83,13 @@ function App() {
   if (loading) return <div className="full-screen-message"><h1>Loading...</h1></div>;
   if (error) return <div className="full-screen-message"><h1>Error loading movies</h1></div>;
   if (movies['detail'] === 'Invalid token.' && isLoggedIn) {
-    setIsLoggedIn(false);
-    setLoginAttempted(true);
+    logoutUser();
     return <h1>Wrong credentials, please refresh and try again</h1>;
   }
   if (isLoggingOut) {
     return <h1>Logging out...</h1>
   }
-  if (loginAttempted && !isLoggedIn) {
+  if (loginAttempted && !loginSuccessful) {
     return <h1>Wrong credentials, please refresh and try again</h1>;
   }
 
