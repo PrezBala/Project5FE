@@ -75,12 +75,14 @@ function App() {
 
   if (loading) return <div className="full-screen-message"><h1>Loading...</h1></div>;
   if (error) return <div className="full-screen-message"><h1>Error loading movies</h1></div>;
+  
+  if (!isLoggedIn) {
+    return <h1>You are logged out!</h1>;
+  }
+  
   if (movies['detail'] === 'Invalid token.' && isLoggedIn) {
     logoutUser();
     return <h1>Wrong credentials, please refresh and try again</h1>;
-  }
-  if (!isLoggedIn) {
-    return <h1>Wrong credentials, please refresh and try again</h1>
   }
 
   return (
