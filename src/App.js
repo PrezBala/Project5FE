@@ -29,15 +29,10 @@ function App() {
     setMovies(data);
   }, [data])
 
-  useEffect(() => {
-    if (!token['mr-token']) {
+  useEffect( () => {
+    if(!token['mr-token']) {
       setIsLoggedIn(false);
-      if (sessionStorage.getItem('loginAttempted')) {
-        window.location.href = '/';
-      }
-    } else {
-      sessionStorage.setItem('loginAttempted', 'true');
-      setIsLoggedIn(true);
+      window.location.href = '/';
     }
   }, [token])
 
@@ -75,7 +70,6 @@ function App() {
   const logoutUser = () => {
     deleteToken(['mr-token']);
     deleteStaff(['is-staff']);
-    sessionStorage.removeItem('loginAttempted');
     setIsLoggedIn(false);
   };
 
@@ -85,11 +79,8 @@ function App() {
     logoutUser();
     return <h1>Wrong credentials, please refresh and try again</h1>;
   }
-  if (!isLoggedIn && sessionStorage.getItem('loginAttempted')) {
-    return <h1>Wrong credentials, please refresh and try again</h1>;
-  }
-  if (!isLoggedIn && !sessionStorage.getItem('loginAttempted')) {
-    return <h1>You are logged out!</h1>;
+  if (!isLoggedIn) {
+    return <h1>Wrong credentials, please refresh and try again</h1>
   }
 
   return (
