@@ -24,20 +24,20 @@ function App() {
   const [isStaff, /* setIsStaff */, deleteStaff] = useCookies(['is-staff']); 
   const [data, loading, error] = useFetch();
   const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const [loginAttempted, setLoginAttempted] = useState(false);
 
   useEffect(()=>{
     setMovies(data);
   }, [data])
 
-  useEffect( () => {
-    if(!token['mr-token']) {
+  useEffect(() => {
+    if (!token['mr-token']) {
       setIsLoggedIn(false);
-      if (loginAttempted) {
+      if (sessionStorage.getItem('loginAttempted')) {
         window.location.href = '/';
       }
     } else {
-      setLoginAttempted(true);
+      sessionStorage.setItem('loginAttempted', 'true');
+      setIsLoggedIn(true);
     }
   }, [token])
 
@@ -75,23 +75,21 @@ function App() {
   const logoutUser = () => {
     deleteToken(['mr-token']);
     deleteStaff(['is-staff']);
+    sessionStorage.removeItem('loginAttempted');
     setIsLoggedIn(false);
   };
 
   if (loading) return <div className="full-screen-message"><h1>Loading...</h1></div>;
   if (error) return <div className="full-screen-message"><h1>Error loading movies</h1></div>;
-  
-  if (!isLoggedIn && loginAttempted) {
-    return <h1>Wrong credentials, please refresh and try again</h1>;
-  }
-
-  if (!isLoggedIn && !loginAttempted) {
-    return <h1>You are logged out!</h1>;
-  }
-  
   if (movies['detail'] === 'Invalid token.' && isLoggedIn) {
     logoutUser();
     return <h1>Wrong credentials, please refresh and try again</h1>;
+  }
+  if (!isLoggedIn && sessionStorage.getItem('loginAttempted')) {
+    return <h1>Wrong credentials, please refresh and try again</h1>;
+  }
+  if (!isLoggedIn && !sessionStorage.getItem('loginAttempted')) {
+    return <h1>You are logged out!</h1>;
   }
 
   return (
