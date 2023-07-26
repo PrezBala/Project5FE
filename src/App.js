@@ -24,6 +24,7 @@ function App() {
   const [isStaff, /* setIsStaff */, deleteStaff] = useCookies(['is-staff']); 
   const [data, loading, error] = useFetch();
   const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [loginAttempted, setLoginAttempted] = useState(false);
 
   useEffect(()=>{
     setMovies(data);
@@ -32,7 +33,11 @@ function App() {
   useEffect( () => {
     if(!token['mr-token']) {
       setIsLoggedIn(false);
-      window.location.href = '/';
+      if (loginAttempted) {
+        window.location.href = '/';
+      }
+    } else {
+      setLoginAttempted(true);
     }
   }, [token])
 
@@ -76,7 +81,11 @@ function App() {
   if (loading) return <div className="full-screen-message"><h1>Loading...</h1></div>;
   if (error) return <div className="full-screen-message"><h1>Error loading movies</h1></div>;
   
-  if (!isLoggedIn) {
+  if (!isLoggedIn && loginAttempted) {
+    return <h1>Wrong credentials, please refresh and try again</h1>;
+  }
+
+  if (!isLoggedIn && !loginAttempted) {
     return <h1>You are logged out!</h1>;
   }
   
