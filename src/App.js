@@ -10,7 +10,7 @@ import { useCookies } from 'react-cookie';
 import { useFetch } from './hooks/useFetch';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useHistory } from 'react-router-dom';
 
 const Movie1 = "/images/batman.png";
 const Movie2 = "/images/harry.jpg";
@@ -24,6 +24,7 @@ function App() {
   const [isStaff, /* setIsStaff */, deleteStaff] = useCookies(['is-staff']); 
   const [data, loading, error] = useFetch();
   const [isLoggedIn, setIsLoggedIn] = useState(true);
+  let history = useHistory();  // Added useHistory hook here
 
   useEffect(()=>{
     setMovies(data);
@@ -95,7 +96,7 @@ function App() {
           <span>Log out</span>
         </div>
         {isStaff['is-staff'] === 'true' ? (
-          <div className="admin-section" onClick={() => window.location.href = '/admin'}>
+          <div className="admin-section" onClick={() => history.push('/admin')}> 
             <span>Admin Section</span>
           </div>
         ) : null}
