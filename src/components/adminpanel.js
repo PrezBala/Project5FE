@@ -14,13 +14,20 @@ function AdminPanel() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    API.getUser(userId['mr-userid'], token['mr-token'])
-      .then(response => {
+    const fetchUser = async () => {
+      try {
+        const response = await API.getUser(userId['mr-userid'], token['mr-token'])
         setIsAdmin(response.is_staff);
-      })
-      .catch(error => console.log(error));
+        if (!response.is_staff) {
+          navigate('/');
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchUser();
 
-    async function fetchMovies() {
+    const fetchMovies = async () => {
       try {
         const movies = await API.getMovies(token['mr-token']);
         setMoviesData(movies);
@@ -32,13 +39,7 @@ function AdminPanel() {
     }
 
     fetchMovies();
-  }, [token, userId]);
-
-  useEffect(() => {
-    if (!isAdmin) {
-      navigate('/');
-    }
-  }, [isAdmin, navigate]);
+  }, [token, userId, navigate]);
 
   const deleteMovie = async (movieId) => {
     await API.deleteMovie(movieId, token['mr-token']);
@@ -47,6 +48,10 @@ function AdminPanel() {
 
   const goBack = () => {
     navigate(-1);
+  }
+
+  if (!isAdmin) {
+    return null;
   }
 
   if (moviesLoading) return <h1>Loading...</h1>;
