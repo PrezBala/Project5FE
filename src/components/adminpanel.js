@@ -34,6 +34,12 @@ function AdminPanel() {
     fetchMovies();
   }, [token, userId]);
 
+  useEffect(() => {
+    if (!isAdmin) {
+      navigate('/');
+    }
+  }, [isAdmin, navigate]);
+
   const deleteMovie = async (movieId) => {
     await API.deleteMovie(movieId, token['mr-token']);
     window.location.reload();
@@ -41,11 +47,6 @@ function AdminPanel() {
 
   const goBack = () => {
     navigate(-1);
-  }
-
-  if (!isAdmin) {
-    navigate('/');
-    return null;
   }
 
   if (moviesLoading) return <h1>Loading...</h1>;
