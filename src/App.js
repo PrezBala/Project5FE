@@ -130,7 +130,7 @@ function App() {
           />
           <button onClick={newMovie}>New movie</button>
         </div>
-        <MovieDetails movie={selectedMovie} updateMovie={loadMovie} />
+        {selectedMovie ? <MovieDetails movie={selectedMovie} updateMovie={loadMovie} /> : null}
         {editedMovie ? (
           <MovieForm
             movie={editedMovie}
